@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    Interactive Bookstore Application
 
-## Available Scripts
+## Objective
 
-In the project directory, you can run:
+    The application should allow users to browse and search for books, view book details, add      books  to a shopping cart, and place an order.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    ReactJS, React Router, Redux or React Context API, CSS or CSS frameworks, Git, and GitHub for hosting the repository.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Completion Instructions
 
-### `npm test`
+### Functionality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Must Have
+* Build a ReactJS application with multiple pages/components, including Home, Book Listing, Book Details, Shopping Cart, and Checkout pages
+* Implement features such as book search, book filtering, add to cart, remove from cart, and order placement.
 
-### `npm run build`
+#### Nice to Have
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Implementing user authentication, unit tests, and deploying the application on a hosting platform.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Guidelines to develop a project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Must Have
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Create a new public repository on GitHub for the assignment.
+* Commit your code regularly and include clear commit messages.
+* Include a README file explaining the project setup, usage instructions, and any additional  information.
+* Ensure the repository is well-organized and easy to navigate.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Nice to Have
+NA
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### ROUTES
 
-## Learn More
+* Page------------------Route-------------------Path
+* Home------------------Home--------------------/
+* Book List-------------Book List---------------/books
+* Book Details----------Book Details------------/books/:id
+* Cart------------------Cart--------------------/cart
+* Checkout--------------Checkout----------------/checkout
+* Not Found-------------Not Found---------------/not-found
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Resources
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pages
 
-### Code Splitting
+#### Page: Home
+Page Details:
+* Header - links for pages Home, Book List, Cart
+* Banner - Heading, description, and “Explore Books” Button
+Navigation:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+#### Page: Book List
+Page Details:
+Header - links for pages Home, Book List, Cart, Book Items, Search, Filter
+Navigation:
+* Book List" link in Header
+* "Explore Books" Button
+* "Back" Button in Book Details Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Page: Book Details
+Page Details:
+* Book detailed Information
+* "Add to cart" Button
+* "Back" button
+Navigation: Each Book Item in Book List Page
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Page: Cart
+Page Details:
+* Cart Items,
+* "Remove" Button
+* Order Summary
+* "Checkout" Button
+Navigation:
+* "Cart" link in Header
+* "Back" Button in Checkout Page
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Page: Checkout
 
-### Deployment
+Page Details:
+"Back" Button,
+Order Form (Personal Details, Summary, Place Order)
+Navigation:
+Checkout in Cart
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+### Design files
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Home, book list, book details, shopping cart, checkout  
+
+### APIs
+
+    Books, BookDetails, search, filter
+    Reference : https://api.itbook.store/
+
+### Third-party packages
+
+NA

@@ -1,16 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
 
-function App() {
+import {Route, Switch, Redirect} from 'react-router-dom'
 
-  return (
-    <div className="App">
-      
-        <h1>mohan reddy is the real hero</h1>
-        
+import Home from './components/Home'
 
-    </div>
-  );
-}
 
-export default App;
+import Header from './components/Header'
+
+import './App.css'
+
+const App = () => (
+  <Switch>
+    <Route exact path='/' component={Home} />
+    <Route exact path='/header' component={Header} />
+  </Switch>
+)
+
+
+export default App

@@ -1,0 +1,33 @@
+.header-navigate-items-cont{
+    display: flex;
+    align-items: center;
+    margin-right:8px;
+}
+
+.header-navigate-items-logos{
+    height: 20px;
+}
+
+.header-main-style{
+    width:95vw;
+}
+
+.header-navigate-items-content{
+    display: none;
+    font-size: 16px;
+    margin-top:12px;
+    font-weight: 500;
+    margin-left:4px;
+}
+
+@media screen and (min-width: 700px) {
+    .header-navigate-items-content{
+        display: inline;
+    }
+}
+
+@media screen and (min-width:1200px){
+    .header-main-style{
+        width:90vw;
+    }
+}
