@@ -20,7 +20,7 @@ const Header = () => (
                 const {booksList} = value
                 
                 return (
-                    <MainContainer>
+                    <MainContainer className='header-first-cont'>
                         <HeaderMain className='header-main-style'>
                         <HeaderLogoCont>
                             <HeaderLogo>

@@ -20,6 +20,10 @@
     margin-left:4px;
 }
 
+.header-first-cont{
+    height:15vh;
+}
+
 @media screen and (min-width: 700px) {
     .header-navigate-items-content{
         display: inline;
@@ -29,5 +33,12 @@
 @media screen and (min-width:1200px){
     .header-main-style{
         width:90vw;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .header-first-cont{
+        height:10vh;
+        
     }
 }
