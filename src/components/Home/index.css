@@ -35,6 +35,13 @@ margin-top: 8vh;
     font-weight: 500;
 }
 
+.home-loading-cont{
+    height:60vh;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
 .home-explore-books-button{
     background-color: #f0fa34;
     border: none;

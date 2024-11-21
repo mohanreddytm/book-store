@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Triangle } from 'react-loader-spinner';
 import Header from '../Header'
 import "swiper/css";
 import AllIneOne from '../../complexOne/AllIneOne'
@@ -61,12 +62,25 @@ const Home = () => {
                     <MainContainer>
                         <Header />
                         
-                        {booksList.length > 1 && 
+                        {booksList.length > 1 ? 
                         <Swiper className="mySwiper my-own-swipper">
                             {booksList.map((eachBooks) => (
                                 makingEachBook(eachBooks)
                             ))}
-                        </Swiper>
+                        </Swiper> : (
+                            <div className='home-loading-cont'>
+                                <Triangle
+                                    visible={true}
+                                    height="80"
+                                    width="80"
+                                    color="#ffe300"
+                                    ariaLabel="triangle-loading"
+                                    wrapperStyle={{}}
+                                    wrapperClass=""
+                                    />
+                            </div>
+                            
+                        )
                         }
 
                         <p className='home-desc'>
