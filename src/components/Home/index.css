@@ -58,6 +58,14 @@ font-size: 10px;
 font-weight: 500;
 }
 
+.home-desc{
+    color:#010c1c;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 16px 32px;
+
+}
+
 @media screen and (max-width:789px) {
     .each-book-main-cont{
         flex-direction: column;

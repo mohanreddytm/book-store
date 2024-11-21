@@ -69,6 +69,12 @@ const Home = () => {
                         </Swiper>
                         }
 
+                        <p className='home-desc'>
+                            Step into a world of endless possibilities with our carefully curated collection of books. Whether you’re seeking a thrilling mystery, a heartwarming romance, or a life-changing guide, our shelves are brimming with stories to ignite your imagination and inspire your soul.
+                            <br />
+                            Discover bestselling titles, timeless classics, and hidden gems that cater to every mood and passion. From avid readers to casual explorers, there’s something here for everyone to uncover, learn, and enjoy. Dive in, and let the pages take you on an unforgettable journey!
+                        </p>
+
                         <button className='home-explore-books-button'>Explore Books</button>
                     </MainContainer>
                 )
