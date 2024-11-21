@@ -18,7 +18,7 @@ const Header = () => (
         {
             value => {
                 const {booksList} = value
-                console.log(booksList)
+                
                 return (
                     <MainContainer>
                         <HeaderMain className='header-main-style'>

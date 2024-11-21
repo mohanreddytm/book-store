@@ -1,3 +1,87 @@
 .initial-one{
     color:black
 }
+
+.each-book{
+    height:60vh;
+}
+
+.my-own-swipper{
+    background-color: #edeff2;
+
+    width: 100vw;
+}
+
+.each-book-main-cont{
+    display: flex;
+
+}
+
+.each-book-content-cont{
+    display: flex;
+    flex-direction: column;
+margin-top: 8vh;
+}
+
+.each-book-title{
+    color:#010c1c;
+    font-size: 16px;
+    font-weight:600;
+}
+
+.each-book-price{
+    color:#010c1c;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.home-explore-books-button{
+    background-color: #f0fa34;
+    border: none;
+    border-radius: 8px;
+    padding:8px 16px;
+    color:#010c1c;
+    font-size: 14px;
+    margin: 24px;
+    font-weight: 500;
+}
+
+.each-book-cont{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+
+}
+
+.each-book-view-details-button{
+font-size: 10px;
+font-weight: 500;
+}
+
+@media screen and (max-width:789px) {
+    .each-book-main-cont{
+        flex-direction: column;
+    }
+
+    .each-book-content-cont{
+        margin-left: 16px;
+        margin-top: 0px;
+    }
+
+    .each-book{
+        height:50vh;
+        width: 60vw;
+        text-align: center;
+    }
+.each-book-title{
+    margin-top: 0px;
+}
+
+}
+
+@media screen and (max-width:450px) {
+    .each-book{
+        height:40vh;
+        width: 80vw;
+    }
+}
