@@ -3,15 +3,21 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Triangle } from 'react-loader-spinner';
 import Header from '../Header'
 import "swiper/css";
+import { Redirect } from 'react-router-dom';
 import AllIneOne from '../../complexOne/AllIneOne'
 import './index.css'
 import {MainContainer, MainHeading} from './WantedStyle'
 
-const Home = () => {
+const Home = (props) => {
     const [booksList, setBooksList] = useState([])
 
+    
+    const onClickExploreBooksButton = () => {
+            const {history} = props
+            history.push('/booksList')
+    }
+    
     const makingEachBook = eachBooks => {
-        console.log(eachBooks.title)
         return <SwiperSlide key={eachBooks.
             isbn13}>
                 <div className='each-book-main-cont'>
@@ -53,48 +59,40 @@ const Home = () => {
     }, [])
 
 
+
+
     return(
-        <AllIneOne.Consumer>
-            {value => {
-                const {finalBooksList} = value
-                console.log(booksList)
-                return(
-                    <MainContainer>
-                        <Header />
-                        
-                        {booksList.length > 1 ? 
-                        <Swiper className="mySwiper my-own-swipper">
-                            {booksList.map((eachBooks) => (
-                                makingEachBook(eachBooks)
-                            ))}
-                        </Swiper> : (
-                            <div className='home-loading-cont'>
-                                <Triangle
-                                    visible={true}
-                                    height="80"
-                                    width="80"
-                                    color="#ffe300"
-                                    ariaLabel="triangle-loading"
-                                    wrapperStyle={{}}
-                                    wrapperClass=""
-                                    />
-                            </div>
-                            
-                        )
-                        }
+        <MainContainer>
+            <Header />   
+            {booksList.length > 1 ? 
+            <Swiper className="mySwiper my-own-swipper">
+                {booksList.map((eachBooks) => (
+                    makingEachBook(eachBooks)
+                ))}
+            </Swiper> : (
+                <div className='home-loading-cont'>
+                    <Triangle
+                        visible={true}
+                        height="80"
+                        width="80"
+                        color="#ffe300"
+                        ariaLabel="triangle-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        />
+                </div>
+                
+            )
+            }
 
-                        <p className='home-desc'>
-                            Step into a world of endless possibilities with our carefully curated collection of books. Whether you’re seeking a thrilling mystery, a heartwarming romance, or a life-changing guide, our shelves are brimming with stories to ignite your imagination and inspire your soul.
-                            <br />
-                            Discover bestselling titles, timeless classics, and hidden gems that cater to every mood and passion. From avid readers to casual explorers, there’s something here for everyone to uncover, learn, and enjoy. Dive in, and let the pages take you on an unforgettable journey!
-                        </p>
+            <p className='home-desc'>
+                Step into a world of endless possibilities with our carefully curated collection of books. Whether you’re seeking a thrilling mystery, a heartwarming romance, or a life-changing guide, our shelves are brimming with stories to ignite your imagination and inspire your soul.
+                <br />
+                Discover bestselling titles, timeless classics, and hidden gems that cater to every mood and passion. From avid readers to casual explorers, there’s something here for everyone to uncover, learn, and enjoy. Dive in, and let the pages take you on an unforgettable journey!
+            </p>
 
-                        <button className='home-explore-books-button'>Explore Books</button>
-                    </MainContainer>
-                )
-            }}
-        </AllIneOne.Consumer>
-    
+            <button onClick={onClickExploreBooksButton} className='home-explore-books-button'>Explore Books</button>
+        </MainContainer>
     )
 }
 

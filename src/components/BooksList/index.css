@@ -1,0 +1,76 @@
+
+.books-list-initial-cont{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.books-list-filter-name{
+    color:#010c1c;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.filter-books{
+    width:200px;
+    margin: 10px;
+
+}
+
+.books-list-bottom-cont{
+    flex-grow: 1;
+
+    display: flex;
+}
+
+.books-list-filter-section{
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f2f2f2;
+    
+}
+
+.books-list-books-section{
+    width: 75vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.books-list-search-cont{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    align-self: flex-end;
+}
+
+.books-list-input-one{
+    border: #010c1c solid 1px;
+    height: 20px;
+    padding: 0px 4px;
+    outline: none;
+    background-color: transparent;
+    font-size: 12px;
+}
+
+.books-list-input-icon-cont{
+    height: 20px;
+   
+    padding: 1px 6px;
+    border: #010c1c solid 1px;
+    background-color: transparent;
+    border-left: none;
+}
+
+.books-list-input-icon{
+    font-size: 12px;
+}
+
+*{
+    font-family: "Roboto";
+    box-sizing: border-box;
+}

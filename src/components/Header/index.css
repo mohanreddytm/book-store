@@ -12,6 +12,17 @@
     width:95vw;
 }
 
+.link-normal{
+    text-decoration: none;
+    color:#010c1c;
+}
+
+.home-link{
+    text-decoration: none;
+    color:#010c1c;
+    align-self: center;
+}
+
 .header-navigate-items-content{
     display: none;
     font-size: 16px;
