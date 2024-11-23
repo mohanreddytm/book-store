@@ -35,7 +35,7 @@
 }
 
 .books-list-books-section{
-    max-width: 75vw;
+    width: 75vw;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -47,20 +47,20 @@
     padding: 0px;
     display: flex;
     flex-wrap: wrap;
-justify-content: space-around;
 }
 
 .books-list-search-cont{
     display: flex;
     align-items: center;
     margin: 20px;
-    align-self: flex-end;
+    align-self: center;
 }
 
 .books-list-input-one{
     border: #010c1c solid 1px;
     height: 20px;
     padding: 0px 4px;
+
     outline: none;
     background-color: transparent;
     font-size: 12px;
@@ -82,4 +82,24 @@ justify-content: space-around;
 *{
     font-family: "Roboto";
     box-sizing: border-box;
+}
+
+@media screen and (max-width:500px) {
+    .books-list-filter-section{
+        display: none;
+    }
+
+    .books-list-books-section{
+        width: 100vw;
+        justify-content: center;
+
+    }
+
+    .books-list-input-one{
+        width: 60vw;
+    }
+
+    .books-list-books-items-cont{
+        justify-content: center;
+    }
 }

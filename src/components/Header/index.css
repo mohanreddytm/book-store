@@ -47,9 +47,9 @@
     }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:449px) {
     .header-first-cont{
-        height:10vh;
+        height:8vh;
         
     }
 }

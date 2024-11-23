@@ -2,7 +2,7 @@
     list-style-type: none;
     display:flex;
     flex-direction: column;
-    
+    align-items: center;
 justify-content: space-between;
     width: 17vw;
     margin: 8px;
@@ -10,13 +10,25 @@ justify-content: space-between;
 }
 
 .book-item-image{
-    height: 35vh;
+    height: 20vw;
+}
+
+.book-item-content
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .book-item-title{
     color:#0a0a0a;
     font-size: 16px;
-    font-weight: 500;
+    max-width: 12vw;
+    
+    overflow: hidden;
+    font-weight: 500; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
 }
 
 
@@ -31,6 +43,7 @@ justify-content: space-between;
     color:#407af7;
     font-size: 12px;
     font-weight: 500;
+    margin-top: 0px;
   
 }
 
@@ -42,10 +55,26 @@ justify-content: space-between;
 
 @media screen and (max-width:449px) {
     .every-book-item{
-        width: 50vw;
+        width: 45vw;
+        margin: 0px;
     }
 
     .book-item-image{
-        height:50vh;
+        height:60vw;
+        width: 45vw;
+    
     }
+    .book-item-title{
+        max-width: 40vw;
+        margin-top: 0px;
+        font-size: 14px;
+    }
+
+    .book-item-price{
+        font-size: 12px;
+    }
+    
+.book-item-view-details-one{
+    font-size: 10px;
+}
 }

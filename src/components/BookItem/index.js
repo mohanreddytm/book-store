@@ -11,7 +11,7 @@ const BookItem = (props) => {
                 <h1 className='book-item-title'>{book.title}</h1>
                 
             </div>
-            <div>
+            <div className='book-item-content'>
                 <p className='book-item-price'>{book.price}</p>
                 <p className='book-item-view-details-one'>View Detials</p>
             </div>
