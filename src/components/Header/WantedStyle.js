@@ -5,12 +5,11 @@ export const MainContainer = styled.div `
  display:flex;
  justify-content:center;
 
+
     
 `
 
 export const HeaderMain = styled.div `
-    
-  
     display:flex;
     flex-direction: row;
     justify-content:space-between;

@@ -47,6 +47,7 @@ const Home = (props) => {
             const response = await fetch(url)
             const booksData = await response.json()
             if(response.ok === true){
+                console.log(booksData)
                 
                 setBooksList(booksData.books)
             }else{
