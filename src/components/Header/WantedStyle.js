@@ -4,7 +4,7 @@ export const MainContainer = styled.div `
     background-color:#ffe300;
     display:flex;
     justify-content:center;
-    position: fixed;
+
 `
 
 export const HeaderMain = styled.div `
