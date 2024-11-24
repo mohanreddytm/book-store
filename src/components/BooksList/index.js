@@ -131,7 +131,12 @@ const BooksList = () => {
                     </div>
                 </div>
             </div>
-
+            <div className='books-list-mobile-filter-cont'>
+                <button className='filter-button' type='button'>Sort by</button>
+                <hr className='filter-botton-separater-line' />
+                <button className='filter-button' type='button'>Filter</button>
+            </div>
+            
         </div>
 ) 
            

@@ -32,13 +32,15 @@
 }
 
 .header-first-cont{
-    height:15vh;
+    height:12vh;
+    max-width: 100vw;
 }
 
 @media screen and (min-width: 700px) {
     .header-navigate-items-content{
         display: inline;
     }
+
 }
 
 @media screen and (min-width:1200px){
@@ -47,9 +49,14 @@
     }
 }
 
-@media screen and (max-width:449px) {
+@media screen and (max-width:700px) {
     .header-first-cont{
-        height:8vh;
-        
+        height:10vh;    
+    }
+}
+
+@media screen and (max-width:500px) {
+    .header-first-cont{
+        height:8vh;    
     }
 }

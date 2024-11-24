@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     max-width: 100vw;
- 
+min-height:100vh;
 }
 
 .books-list-filter-name{
@@ -19,9 +19,11 @@
 }
 
 .books-list-bottom-cont{
-    flex-grow: 1;
-
     display: flex;
+    flex-grow: 1;
+    margin-top: 12vh;
+    
+
 }
 
 .books-list-filter-section{
@@ -47,13 +49,41 @@
     padding: 0px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.books-list-mobile-filter-cont{
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #333;
+
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
 }
 
 .books-list-search-cont{
     display: flex;
     align-items: center;
     margin: 20px;
-    align-self: center;
+    align-self: flex-end;
+}
+
+.filter-botton-separater-line{
+    height: 30px;
+    border:1px solid #ffe300 ;
+    margin: 0px;
+}
+
+.filter-button{
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    color:#f2f2f2;
+    font-size: 16px;
 }
 
 .books-list-input-one{
@@ -84,6 +114,44 @@
     box-sizing: border-box;
 }
 
+
+@media screen and (min-width:700px) {
+    .books-list-mobile-filter-cont{
+        display: none;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .books-list-filter-section{
+        display: none;
+    }
+
+    .books-list-books-section{
+        width: 100vw;
+        justify-content: center;
+
+    }
+
+    .books-list-input-one{
+        width: 40vw;
+    }
+
+    .books-list-search-cont{
+        align-self: center;
+    }
+
+    .books-list-books-items-cont{
+        justify-content: center;
+    }
+
+    .books-list-bottom-cont{
+        margin-top: 10vh;
+    }
+}
+
+
+
+
 @media screen and (max-width:500px) {
     .books-list-filter-section{
         display: none;
@@ -99,7 +167,15 @@
         width: 60vw;
     }
 
+    .books-list-search-cont{
+        align-self: center;
+    }
+
     .books-list-books-items-cont{
         justify-content: center;
+    }
+
+    .books-list-bottom-cont{
+        margin-top: 8vh;
     }
 }

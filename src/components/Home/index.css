@@ -1,3 +1,12 @@
+
+.home-initial-cont{
+    background-color:white;
+    font-size:24px;
+    min-height:100vh;
+    display:flex;
+    flex-direction: column;
+}
+
 .initial-one{
     color:black
 }
@@ -9,6 +18,10 @@
 .my-own-swipper{
     background-color: #edeff2;
     
+}
+
+.home-bottom-cont{
+    margin-top:12vh;
 }
 
 .each-book-main-cont{
@@ -97,5 +110,9 @@ font-weight: 500;
     .each-book{
         height:40vh;
         width: 80vw;
+    }
+
+    .home-bottom-cont{
+        margin-top: 8vh;
     }
 }
