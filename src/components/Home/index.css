@@ -48,8 +48,8 @@ margin-top: 8vh;
 }
 
 .home-loading-cont{
-    height:60vh;
     display: flex;
+    height: 60vh;
     align-items: center;
     justify-self: center;
 }
@@ -106,7 +106,7 @@ font-weight: 500;
 
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:500px) {
     .each-book{
         height:40vh;
         width: 80vw;

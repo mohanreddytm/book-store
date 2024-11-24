@@ -89,15 +89,33 @@ min-height:100vh;
 .books-list-input-one{
     border: #010c1c solid 1px;
     height: 20px;
-    padding: 0px 4px;
+    padding: 0px 8px;
 
     outline: none;
     background-color: transparent;
     font-size: 12px;
+    
+    border-top-left-radius: 2px;
+    
+    border-bottom-left-radius: 2px;
+}
+
+.books-list-loading-cont{
+    display: flex;
+    height: 60vh;
+    align-items: center;
+    justify-self: center;
 }
 
 .books-list-input-icon-cont{
     height: 20px;
+    
+    display: flex;
+    border-top-right-radius: 2px;
+    
+    border-bottom-right-radius: 2px;
+    justify-content:center;
+    align-items: center;
    
     padding: 1px 6px;
     border: #010c1c solid 1px;
@@ -161,10 +179,21 @@ min-height:100vh;
         width: 100vw;
         justify-content: center;
 
+
+
+    }
+
+    .header-navigate-items-logos{
+        font-size:20px;
     }
 
     .books-list-input-one{
         width: 60vw;
+        height:25px;
+    }
+
+    .books-list-input-icon-cont{
+        height: 25px;
     }
 
     .books-list-search-cont{

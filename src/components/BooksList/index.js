@@ -59,7 +59,7 @@ const BooksList = () => {
     }, [])
 
     const loadingView = () => (
-        <div className='home-loading-cont'>
+        <div className='books-list-loading-cont'>
             <Triangle
                 visible={true}
                 height="40"
