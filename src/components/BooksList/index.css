@@ -102,9 +102,10 @@ min-height:100vh;
 
 .books-list-loading-cont{
     display: flex;
-    height: 60vh;
-    align-items: center;
-    justify-self: center;
+    height: 90vh;
+    margin-top: 20vh;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .books-list-input-icon-cont{

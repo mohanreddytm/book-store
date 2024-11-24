@@ -5,13 +5,18 @@ import 'rc-slider/assets/index.css';
 
 import { IoSearch } from "react-icons/io5";
 
+import { useNavigate } from 'react-router-dom';
+
 import { Triangle } from 'react-loader-spinner';
 
 import BookItem from '../BookItem'
 
+import NotFound from '../NotFound';
+
 import Header from '../Header'
 
 import './index.css'
+import { Redirect } from 'react-router-dom';
 
 const Status = {
     loading:"LOADING",
@@ -20,10 +25,10 @@ const Status = {
     initial:"INITIAL"
 }
 
-const BooksList = () => {
+const BooksList = (props) => {
     const [booksList, setBooksList] = useState([])
     const [searchInput, setSearchInput] = useState('')
-    const [range, setRange] = useState([0, 1000]);
+    const [range, setRange] = useState([0, 100]);
     const [pageStatus, setPageStatus] = useState(Status.initial)
 
 
@@ -42,7 +47,7 @@ const BooksList = () => {
             const url =`https://api.itbook.store/1.0/new`
             const response = await fetch(url)
             const initialBookDetails = await response.json()
-            console.log(initialBookDetails)
+
             if(response.ok){
                 
                 setBooksList(initialBookDetails.books)
@@ -72,13 +77,39 @@ const BooksList = () => {
         </div>
     )
 
-    const renderTheBooksList = () => (
-        <ul className='books-list-books-items-cont'>
-            {booksList.map((eachBook) => 
-                <BookItem book={eachBook} key={eachBook.isbn13}  />
-            )}
-        </ul>
-    )
+    const refreshToMakeRangeDefault = () => {
+
+        setRange([0,100])
+
+    }
+
+    const renderTheBooksList = () => {
+        const filteredBooksBasedOnPrice = booksList.filter(eachBook => {
+            const eachBookPriceMode = eachBook.price.replace('$','')
+
+            if((range[0] <= eachBookPriceMode)){
+                if(eachBookPriceMode <= range[1]){
+                    return eachBook
+                }   
+            }
+            return null
+        })
+
+        if(filteredBooksBasedOnPrice.length > 0){
+            return(
+                <ul className='books-list-books-items-cont'>
+                    {filteredBooksBasedOnPrice.map((eachBook) => 
+                        <BookItem book={eachBook} key={eachBook.isbn13}  />
+                    )}
+                </ul>
+            )
+        }
+        return(
+            <NotFound refreshToMakeRangeDefault={refreshToMakeRangeDefault}  />
+        )
+        
+        
+    }
 
     const renderTheMain = () => {
 
@@ -110,8 +141,8 @@ const BooksList = () => {
                         <Slider
                             range
                             min={0}
-                            max={1000}
-                            defaultValue={[0, 1000]}
+                            max={100}
+                            defaultValue={[range[0], range[1]]}
                             onChange={handleChange}
                             tooltip={{
                                 formatter: (value) => `${value}`

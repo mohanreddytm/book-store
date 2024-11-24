@@ -1,0 +1,29 @@
+.not-found-initial-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.not-found-image{
+    height:40vh;
+    width: 30vw;
+}
+
+.not-found-desc{
+    color:#010c1c;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.not-found-refresh-button{
+    border: none;
+    background-color: #1c1c1c;
+    border-radius: 4px;
+    padding:8px 16px;
+    color:white
+}
+
+*{
+    font-family: 'Roboto';
+    box-sizing: border-box;
+}
