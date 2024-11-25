@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react'
 import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
+import { IoMdClose } from "react-icons/io";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 import { IoSearch } from "react-icons/io5";
 
 import { useNavigate } from 'react-router-dom';
@@ -37,7 +41,7 @@ const BooksList = (props) => {
       };
 
     const onChangeInput = (event) => {
-        console.log(event.target.value)
+        setSearchInput(event.target.value)
     }
 
     useEffect(() => {
@@ -69,7 +73,7 @@ const BooksList = (props) => {
                 visible={true}
                 height="40"
                 width="40"
-                color="#ffe300"
+                color="black"
                 ariaLabel="triangle-loading"
                 wrapperStyle={{}}
                 wrapperClass=""
@@ -77,10 +81,25 @@ const BooksList = (props) => {
         </div>
     )
 
+    const onClickSearchButton = async () => {
+        const url = `https://api.itbook.store/1.0/search/${searchInput}`
+        const response = await fetch(url)
+        const booksDetails = await response.json()
+
+        setSearchInput('')
+        console.log(searchInput)
+        if(response.ok){
+            setBooksList(booksDetails.books)
+            setPageStatus(Status.success)
+        }else{
+            setPageStatus(Status.failure)
+        }
+
+        
+    }
+
     const refreshToMakeRangeDefault = () => {
-
-        setRange([0,100])
-
+        window.location.reload()
     }
 
     const renderTheBooksList = () => {
@@ -152,9 +171,12 @@ const BooksList = (props) => {
                 </div>
                 <div className='books-list-books-section'>
                     <div className='books-list-search-cont'>
-                        <input onChange={onChangeInput} className='books-list-input-one' type='search' placeholder='Search for Book' />
+                        <input value={searchInput} onChange={onChangeInput} className='books-list-input-one' type='search' placeholder='Search for Book' />
                         <div className='books-list-input-icon-cont'>
-                            <IoSearch className='books-list-input-icon' />
+                            <button onClick={onClickSearchButton} className='books-list-seach-button'>
+                                <IoSearch className='books-list-input-icon' />
+                            </button>
+                            
                         </div>
                     </div>
                     <div>
@@ -165,7 +187,38 @@ const BooksList = (props) => {
             <div className='books-list-mobile-filter-cont'>
                 <button className='filter-button' type='button'>Sort by</button>
                 <hr className='filter-botton-separater-line' />
-                <button className='filter-button' type='button'>Filter</button>
+                
+                <Popup
+                    trigger={<button className='filter-button' type='button'>Filter</button>} 
+                    modal
+                    position="bottom center"
+                    closeOnDocumentClick
+                >
+                    {(close) => (
+                    <div className='popup-content'>
+                        <button className='book-list-close-button' onClick={close}><IoMdClose /></button>
+                        <h1 className='filter-text'>Filter</h1>
+                        <div className='filter-books-mobile-version'>
+                            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                <span>${range[0]}</span>
+                                <span>${range[1]}</span>
+                            </div>
+                            <Slider
+                                range
+                                min={0}
+                                max={100}
+                                defaultValue={[range[0], range[1]]}
+                                onChange={handleChange}
+                                tooltip={{
+                                    formatter: (value) => `${value}`
+                                }}
+                                
+                            />
+                        </div>
+                    </div>
+                    )}
+                </Popup>
+    
             </div>
             
         </div>

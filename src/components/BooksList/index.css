@@ -12,6 +12,13 @@ min-height:100vh;
     font-weight: 500;
 }
 
+.books-list-seach-button{
+    border: none;
+    background-color: transparent;
+    padding: 0px;
+    margin-top: 2px;
+}
+
 .filter-books{
     width:16vw;
     margin: 10px;
@@ -22,8 +29,6 @@ min-height:100vh;
     display: flex;
     flex-grow: 1;
     margin-top: 12vh;
-    
-
 }
 
 .books-list-filter-section{
@@ -70,6 +75,7 @@ min-height:100vh;
     align-items: center;
     margin: 20px;
     align-self: flex-end;
+
 }
 
 .filter-botton-separater-line{
@@ -84,6 +90,7 @@ min-height:100vh;
     background-color: transparent;
     color:#f2f2f2;
     font-size: 16px;
+    outline: none;
 }
 
 .books-list-input-one{
@@ -100,12 +107,47 @@ min-height:100vh;
     border-bottom-left-radius: 2px;
 }
 
+
+
+.popup-content{
+    position: absolute;
+    width: 100vw;
+    left:40%;
+    padding:20px;
+    padding-bottom:40px;
+    display: flex;
+    flex-direction: column;
+    bottom:-39%;
+    margin-top:0px;
+    transform: translateX(-40%);
+}
+
+.filter-text{
+    font-size: 32px;
+    color: #010c1c;
+    font-weight: 500;
+    margin-top: 0px;
+}
+
+.book-list-close-button{
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    align-self: flex-end;
+}
+
 .books-list-loading-cont{
     display: flex;
     height: 90vh;
     margin-top: 20vh;
     align-items: flex-start;
     justify-content: center;
+    
+}
+
+.filter-books-mobile-version{
+    width: 60vw;
+
 }
 
 .books-list-input-icon-cont{
@@ -123,6 +165,8 @@ min-height:100vh;
     background-color: transparent;
     border-left: none;
 }
+
+
 
 .books-list-input-icon{
     font-size: 12px;
@@ -147,7 +191,7 @@ min-height:100vh;
 
     .books-list-books-section{
         width: 100vw;
-        justify-content: center;
+        
 
     }
 
@@ -178,12 +222,9 @@ min-height:100vh;
 
     .books-list-books-section{
         width: 100vw;
-        justify-content: center;
-
-
-
     }
 
+    
     .header-navigate-items-logos{
         font-size:20px;
     }

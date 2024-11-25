@@ -19,6 +19,7 @@ export const MainHeading = styled.h1 `
     color:black;
     margin-left:4px;
     font-size:16px;
+    weight:500;
 `
 
 export const HeaderLogoCont = styled.div `
