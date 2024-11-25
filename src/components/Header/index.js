@@ -18,7 +18,7 @@ const Header = () => (
     <MainContainer className='header-first-cont'>
         <HeaderMain className='header-main-style'>
             <Link to='/' className='home-link'>
-                <HeaderLogoCont className='header-logo-cont'>
+                <HeaderLogoCont>
                     <HeaderLogo className='header-logo'>
                         B
                     </HeaderLogo>
