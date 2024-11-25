@@ -17,6 +17,8 @@ import BookItem from '../BookItem'
 
 import NotFound from '../NotFound';
 
+import FailureView from '../FailureView'
+
 import Header from '../Header'
 
 import './index.css'
@@ -102,6 +104,10 @@ const BooksList = (props) => {
         window.location.reload()
     }
 
+    const renderFailureView = () => {
+        FailureView()
+    }
+
     const renderTheBooksList = () => {
         const filteredBooksBasedOnPrice = booksList.filter(eachBook => {
             const eachBookPriceMode = eachBook.price.replace('$','')
@@ -139,7 +145,8 @@ const BooksList = (props) => {
             case Status.success:
                 return renderTheBooksList()
                 break
-            default:
+            case Status.failure:
+                return renderFailureView()
                 break
         }
 

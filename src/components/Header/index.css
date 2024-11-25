@@ -1,7 +1,7 @@
 .header-navigate-items-cont{
     display: flex;
     align-items: center;
-    margin-right:8px;
+    margin-left:12px;
 }
 
 .header-navigate-items-logos{
@@ -10,6 +10,13 @@
 
 .header-main-style{
     width:95vw;
+}
+
+.book-store-text{
+    color:black;
+    margin-left:2px;
+    font-size:16px;
+    font-weight:600;
 }
 
 .link-normal{
@@ -21,6 +28,10 @@
     text-decoration: none;
     color:#010c1c;
     align-self: center;
+}
+
+.header-logo{
+    font-size:18px;
 }
 
 .header-navigate-items-content{
@@ -53,10 +64,20 @@
     .header-first-cont{
         height:10vh;    
     }
+
+    .book-store-text{
+        font-size: 14px;
+    }
+
+    .header-logo{
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width:500px) {
     .header-first-cont{
         height:8vh;    
     }
+
+    
 }

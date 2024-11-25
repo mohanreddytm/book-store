@@ -9,7 +9,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 import './index.css'
 
-import {MainContainer, MainHeading, HeaderLogoCont,HeaderLogo,NavigateComponents,HeaderMain} from './WantedStyle'
+import {MainContainer, HeaderLogoCont,HeaderLogo,NavigateComponents,HeaderMain} from './WantedStyle'
 
 
 
@@ -18,11 +18,11 @@ const Header = () => (
     <MainContainer className='header-first-cont'>
         <HeaderMain className='header-main-style'>
             <Link to='/' className='home-link'>
-                <HeaderLogoCont>
-                    <HeaderLogo>
+                <HeaderLogoCont className='header-logo-cont'>
+                    <HeaderLogo className='header-logo'>
                         B
                     </HeaderLogo>
-                    <MainHeading>BookStore</MainHeading>
+                    <h1 className='book-store-text'>BookStore</h1>
                 </HeaderLogoCont>
             </Link>
         

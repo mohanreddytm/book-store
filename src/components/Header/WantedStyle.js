@@ -15,12 +15,6 @@ export const HeaderMain = styled.div `
     justify-content:space-between;
 `
 
-export const MainHeading = styled.h1 `
-    color:black;
-    margin-left:4px;
-    font-size:16px;
-    weight:500;
-`
 
 export const HeaderLogoCont = styled.div `
     display:flex;
@@ -31,7 +25,6 @@ export const HeaderLogoCont = styled.div `
 export const HeaderLogo = styled.h1 `
     border:2px solid black;
     padding:4px 8px;
-    font-size:18px;
     margin-right:4px;
 `
 
