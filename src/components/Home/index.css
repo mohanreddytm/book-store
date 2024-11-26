@@ -73,8 +73,10 @@ margin-top: 8vh;
 }
 
 .each-book-view-details-button{
-font-size: 10px;
-font-weight: 500;
+    font-size: 14px;
+    font-weight: 500;
+    color:#1c3f57;
+    margin-top: 0px;
 }
 
 .home-desc{

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
 import { IoMdClose } from "react-icons/io";
@@ -9,7 +9,6 @@ import 'reactjs-popup/dist/index.css';
 
 import { IoSearch } from "react-icons/io5";
 
-import { useNavigate } from 'react-router-dom';
 
 import { Triangle } from 'react-loader-spinner';
 
@@ -22,7 +21,6 @@ import FailureView from '../FailureView'
 import Header from '../Header'
 
 import './index.css'
-import { Redirect } from 'react-router-dom';
 
 const Status = {
     loading:"LOADING",
@@ -104,9 +102,8 @@ const BooksList = (props) => {
         window.location.reload()
     }
 
-    const renderFailureView = () => {
-        FailureView()
-    }
+    const renderFailureView = () => FailureView()
+    
 
     const renderTheBooksList = () => {
         const filteredBooksBasedOnPrice = booksList.filter(eachBook => {
@@ -141,13 +138,17 @@ const BooksList = (props) => {
         switch (pageStatus) {
             case Status.loading:
                 return loadingView()
-                break
+                
             case Status.success:
                 return renderTheBooksList()
-                break
+                
             case Status.failure:
                 return renderFailureView()
-                break
+                
+
+            default:
+                return null
+                
         }
 
     }
