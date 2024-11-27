@@ -67,13 +67,25 @@ const BookDetails = (props) => {
                     <p className="book-details-author"><span className="authors-span-one">Authors:</span> {authors}</p>
                     <p className="book-details-date">Release year: {year}</p>
                     <div className="book-details-rating-cont">
-                        <ReactStars
-                            count={5}
-                            value={+rating}
-                            edit={false}
-                            size={24}
-                            activeColor="#ffd700"
-                        />
+                        <div className="star-large">
+                            <ReactStars
+                                count={5}
+                                value={+rating}
+                                edit={false}
+                                size={24}
+                                activeColor="#ffd700"
+                            />
+                        </div>
+                        <div className="star-medium">
+                            <ReactStars
+                                count={5}
+                                value={+rating}
+                                edit={false}
+                                size={16}
+                                activeColor="#ffd700"
+                            />
+                        </div>
+                        
                     </div>
                     <div className="book-details-price-cont">
                         <p className="book-details-price">{price}</p>
@@ -106,6 +118,12 @@ const BookDetails = (props) => {
 
                     <h1 className="book-details-desc-head">Description</h1>
                     <p className="book-details-desc">{desc}</p>
+
+                    <div className='book-details-mobile-buy-buttons-cont'>
+                        <button className='filter-button' type='button'>ADD TO CART</button>
+                        <hr className='filter-botton-separater-line' />
+                        <button className='filter-button' type='button'>BUY IT NOW</button>
+                    </div>
                     
                     </div>
                 

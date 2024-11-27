@@ -182,7 +182,11 @@ min-height:100vh;
     .books-list-mobile-filter-cont{
         display: none;
     }
+
+
 }
+
+
 
 @media screen and (max-width:700px) {
     .books-list-filter-section{
@@ -193,6 +197,10 @@ min-height:100vh;
         width: 100vw;
         
 
+    }
+
+    .books-list-bottom-cont{
+        margin-bottom: 50px;
     }
 
     .books-list-input-one{
