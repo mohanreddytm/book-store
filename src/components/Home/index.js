@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Triangle } from 'react-loader-spinner';
 import {Link} from 'react-router-dom'
 import Header from '../Header'
+
 import "swiper/css";
 import './index.css'
 
@@ -31,8 +32,7 @@ const Home = (props) => {
                         <p className='each-book-price'>{eachBooks.subtitle}</p>
 
                         <p className='each-book-price'>Price: {eachBooks.price}</p>
-                        <Link to={`/book/${eachBooks.
-            isbn13}`} className='link-normal'>
+                        <Link to={`/book/${eachBooks.isbn13}`} className='link-normal'>
                             <p className='each-book-view-details-button'>view details</p>
                         </Link>
                     </div>
@@ -47,7 +47,7 @@ const Home = (props) => {
             const response = await fetch(url)
             const booksData = await response.json()
             if(response.ok === true){
-                console.log(booksData)
+
                 
                 setBooksList(booksData.books)
             }else{

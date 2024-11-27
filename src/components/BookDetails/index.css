@@ -207,6 +207,15 @@
 margin-bottom: 12px;
 }
 
+.book-details-cart-button{
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    color:#f2f2f2;
+    font-size: 16px;
+    outline: none;
+}
+
 .book-details-desc{
     color:#171715;
     margin-top: 0px;
