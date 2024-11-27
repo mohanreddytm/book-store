@@ -244,10 +244,6 @@ margin-bottom: 12px;
     }
 
 
-    .book-details-price{
-        font-size: 16px;
-    }
-
     .book-details-image{
         width: 60vw;
         height:60vh;
@@ -304,20 +300,15 @@ margin-bottom: 12px;
     }
     
 
-    .book-details-title{
-        font-size: 16px;
-    }
-    .book-details-sub-title{
-        font-size: 10px;
-    }
+    
 
     .book-details-author{
-        font-size: 10px;
+
         margin-top: 8px;
     }
 
     .book-details-date{
-        font-size: 10px;
+
         margin-top: 0px;
     }
 }
