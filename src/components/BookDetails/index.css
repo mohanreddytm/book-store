@@ -295,20 +295,38 @@ margin-bottom: 12px;
         display: inline;
     }
 
+    .book-details-desc-head{
+        font-size: 18px;
+    }
+
+    .book-details-desc{
+        font-size: 14px;
+    }
+
     .star-large{
         display: none;
     }
     
 
-    
+    .book-details-title{
+        font-size: 20px;
+    }
+    .book-details-sub-title{
+        font-size: 14px;
+    }
 
     .book-details-author{
+        font-size: 14px;
+        margin-bottom: 4px;
+        margin-top: 0px;
+    }
 
-        margin-top: 8px;
+    .book-details-price{
+        font-size: 20px;
     }
 
     .book-details-date{
-
+        font-size: 14px;
         margin-top: 0px;
     }
 }
