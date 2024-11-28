@@ -33,11 +33,13 @@ const Header = () => (
                     <p className='header-navigate-items-content' >Books</p>
                 </div>
             </Link>
-            
-            <div className='header-navigate-items-cont'>
-                <FaShoppingCart className='header-navigate-items-logos'  />
-                <p className='header-navigate-items-content' >Cart</p>
-            </div>
+
+            <Link to="/cart" className='link-normal'>
+                <div className='header-navigate-items-cont'>
+                    <FaShoppingCart className='header-navigate-items-logos'  />
+                    <p className='header-navigate-items-content' >Cart</p>
+                </div>
+            </Link>
             
         </NavigateComponents>
         </HeaderMain>

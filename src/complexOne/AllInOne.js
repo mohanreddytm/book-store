@@ -2,7 +2,8 @@ import react from 'react'
 
 const AllInOne = react.createContext({
     cartBooks:[],
-    addCartBooksFun: () => {}
+    addCartBooksFun: () => {},
+    modifyCartBooksFun : () => {}
 })
 
 export default AllInOne

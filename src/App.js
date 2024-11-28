@@ -37,11 +37,25 @@ const App = () => {
   })
   }
 
-  console.log(cartBooksItems)
-  
+  const updateCartQuantity = (book) => {
+    setCartBooksItems((prevState) => {
+      const updateQuantity = prevState.map(eachBook => {
+        if(eachBook.id === book.id){
+          const quantity = book.quantity
+          return {...eachBook, quantity}
+        }
+        return eachBook
+      })
+      console.log(updateQuantity)
+      return  updateQuantity
+    }
+
+    )
+
+  }
 
   return(
-    <AllInOne.Provider value={{addCartBooksFun:updateCartBooksItems,cartBooks:cartBooksItems}}>
+    <AllInOne.Provider value={{modifyCartBooksFun:updateCartQuantity,addCartBooksFun:updateCartBooksItems,cartBooks:cartBooksItems}}>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/booksList' component={BooksList} />
