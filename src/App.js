@@ -37,6 +37,11 @@ const App = () => {
   })
   }
 
+  const deleteTheCartItemFromCartList = (id) => {
+    const filteredBooks = cartBooksItems.filter((eachBook) => eachBook.id != id)
+    setCartBooksItems(filteredBooks)
+  }
+
   const updateCartQuantity = (book) => {
     setCartBooksItems((prevState) => {
       const updateQuantity = prevState.map(eachBook => {
@@ -49,13 +54,11 @@ const App = () => {
       console.log(updateQuantity)
       return  updateQuantity
     }
-
     )
-
   }
 
   return(
-    <AllInOne.Provider value={{modifyCartBooksFun:updateCartQuantity,addCartBooksFun:updateCartBooksItems,cartBooks:cartBooksItems}}>
+    <AllInOne.Provider value={{deleteCartItem:deleteTheCartItemFromCartList,modifyCartBooksFun:updateCartQuantity,addCartBooksFun:updateCartBooksItems,cartBooks:cartBooksItems}}>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/booksList' component={BooksList} />

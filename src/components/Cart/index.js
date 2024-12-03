@@ -28,18 +28,16 @@ const Cart = (props) => {
         return(
             <AllInOne.Consumer key={book.id}>
                 {value => {
-                    const {modifyCartBooksFun, cartBooks} = value
-                    console.log(cartBooks)
-
+                    const {modifyCartBooksFun, cartBooks, deleteCartItem} = value
                     const onChangeCartItemQuantity = (event) => {
                         let quantity = event.target.value
                         quantity = +quantity
-                        console.log("1aaa")
-                        console.log(quantity)
                         const updatedBook ={...book , quantity}
-                        console.log(book)
-                        console.log(updatedBook)
                         modifyCartBooksFun(updatedBook)
+                    }
+
+                    const onClickDeleteButton = () => {
+                        deleteCartItem(book.id)
                     }
                     
                     
@@ -47,17 +45,19 @@ const Cart = (props) => {
                     return(
                         <li className='cart-every-book-item'>
                             <img className='cart-every-book-image' src={book.image} alt={book.title} />
-                            <h1 className='cart-every-book-title'>{book.title}</h1>
-                            <p className='cart-every-book-price'>{book.price}</p>
-                            <select onChange={onChangeCartItemQuantity} value={book.quantity} className='cart-every-book-quantity'>
-                                <option value='1'>1</option>
-                                <option value='2'>2</option>
-                                <option value='3'>3</option>
-                                <option value='4'>4</option>
-                                <option value='5'>5</option>
-                            </select>
-                            <p className='cart-every-book-price'>${totalPrice}</p>
-                            <button  className='cart-every-book-remove-button' type='button'><RiDeleteBin6Line className='cart-every-book-delete-icon' /></button>
+                            <div className='cart-every-book-sub-cont'>
+                                <h1 className='cart-every-book-title'>{book.title}</h1>
+                                <p className='cart-every-book-price'>{book.price}</p>
+                                <select onChange={onChangeCartItemQuantity} value={book.quantity} className='cart-every-book-quantity'>
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+                                    <option value='3'>3</option>
+                                    <option value='4'>4</option>
+                                    <option value='5'>5</option>
+                                </select>
+                                <p className='cart-every-book-price'>${totalPrice.toFixed(2)}</p>
+                                <button onClick={onClickDeleteButton}  className='cart-every-book-remove-button' type='button'><RiDeleteBin6Line className='cart-every-book-delete-icon' /></button>
+                            </div>
                         </li>
                     )
                 }}
@@ -81,7 +81,6 @@ const Cart = (props) => {
 
     const renderTheCartItems = (cartBooks) => {
         let totalAmount = 0
-        console.log(cartBooks)
         return(
             <div className='cart-products-main-cont'>
                 <ul className='cart-items-cont'>
@@ -99,14 +98,21 @@ const Cart = (props) => {
                 <div className='cart-summery-cont'>
                         <h1 className='cart-summary-heading'>Order Summary</h1>
                         <hr />
-                        <div className='cart-summary-amount-cont'>
-                            <p className='cart-summary-amount-text'>Amount Payable:</p>
-                            <p className='cart-summary-amount-price'>${totalAmount}</p>
+                        <div className='cart-summary-inside-cont'>
+                            <div>
+                                <div className='cart-summary-amount-cont'>
+                                    <p className='cart-summary-amount-text'>Amount Payable:</p>
+                                    <p className='cart-summary-amount-price'>${totalAmount.toFixed(2)}</p>
+                                </div>
+                                <p className='cart-summary-desc'>Tax included. Shipping calculated at checkout.</p>
+
+                            </div>
+                            <div className='proceed-checkout-cont'>
+                                <button type='button' className='proceed-to-checkout-button'>PROCEED TO CHECKOUT</button>
+                            </div>
                         </div>
-                        <p className='cart-summary-desc'>Tax included. Shipping calculated at checkout.</p>
                         
-                        <button type='button'>PROCEED TO CHECKOUT</button>
-                </div>
+                    </div>
             </div>
         )
     }

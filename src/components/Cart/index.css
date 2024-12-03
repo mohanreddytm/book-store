@@ -7,7 +7,7 @@
 .cart-main-cont{
     margin-top: 12vh;
     flex-grow: 1;
-padding: 16px;
+    padding: 16px;
 }
 
 .cart-main-heading{
@@ -53,7 +53,7 @@ padding: 16px;
     padding: 0px;
     align-items: center;
 
-    justify-content: space-between;
+  
 
     list-style-type: none;
 }
@@ -72,6 +72,17 @@ padding: 16px;
     overflow: hidden;    
     white-space: nowrap;
     text-overflow: ellipsis; 
+}
+
+
+
+.cart-every-book-sub-cont{
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-left:20px;
 }
 
 .cart-every-book-price{
@@ -101,12 +112,7 @@ padding: 16px;
     font-weight: 500;
 }
 
-.cart-products-main-cont{
-    display: flex;
 
-    justify-content: space-around;
-    margin-top: 20px;
-}
 
 .cart-items-cont{
     display: flex;
@@ -119,12 +125,25 @@ padding: 16px;
 
 }
 
+.cart-summary-inside-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .cart-summery-cont{
     width:30vw;
     border: 1px solid #999994;
     border-radius: 4px;
     padding:16px;
-    max-height:40vh;
+    max-height:35vh;
+
+}
+
+.proceed-checkout-cont{
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
 }
 
 .cart-summary-heading{
@@ -140,10 +159,22 @@ padding: 16px;
     align-items: center;
 }
 
+
+
 .cart-summary-amount-text{
     color:#171715;
     font-size: 14px;
     font-weight: 500;
+}
+
+.proceed-to-checkout-button{
+    background-color: #171715;
+    color: azure;
+    border: none;
+    border-radius: 4px;
+    padding:8px 16px;
+    align-self: center;
+
 }
 
 .cart-summary-amount-price{
@@ -160,10 +191,49 @@ padding: 16px;
     
 }
 
+.cart-products-main-cont{
+    display: flex;
+
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+
+
+
+
+
 @media screen and (max-width:1000px) {
     .empty-cart-view-image{
         width: 40vw;
 
+    }
+}
+
+@media screen and (max-width:800px) {
+    .cart-products-main-cont{
+        flex-direction: column;
+        width: 94vw;
+        background-color: transparent;
+    }
+
+    .cart-every-book-image{
+        width:20vw;
+    }
+
+    .cart-items-cont{
+        width: 94vw;
+    }
+
+    .cart-summery-cont{
+        width: 94vw;
+        margin-top:30px;
+        max-height:50vh;
+    }
+
+    .proceed-to-checkout-button{
+        padding:10px 32px;
+        margin-top: 8px;
     }
 }
 
@@ -178,11 +248,61 @@ padding: 16px;
     }
 }
 
+@media screen and (max-width:600px) {
+    .cart-every-book-sub-cont{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .cart-every-book-title{
+        width: 40vw;
+        max-width: 40vw;
+    }
+
+    .cart-main-heading{
+        font-size: 20px;
+    }
+
+    .cart-every-book-image{
+        width:30vw; 
+    }
+
+    .cart-every-book-title{
+        margin-bottom: 0px;
+    }
+
+    .cart-every-book-item{
+        margin-top:20px;
+    }
+
+    .cart-every-book-price{
+        font-size: 16px;
+    }
+
+    .cart-every-book-quantity{
+        padding:4px 8px;
+        font-size: 14px;
+    }
+}
+
 @media screen and (max-width:500px) {
     .empty-cart-view-image{
         width: 80vw;
 
     }
+
+    .cart-every-book-image{
+        width:40vw; 
+    }
+
+    .cart-main-cont{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
 
     .cart-main-cont{
         margin-top: 8vh;
