@@ -6,7 +6,24 @@ import { HeaderLogo,HeaderLogoCont } from '../Header/WantedStyle'
 import './index.css'
 
 const CheckoutPage = () => {
-    console.log("chechout")
+
+    const renderTheAddressPaymentSection = () => {
+        console.log("m")
+        return(
+            <form>
+                <h1>Contact</h1>
+                <input />
+                <div>
+                    <input type='checkbox' />
+                    <label>
+                        <p>Email me with news and offers</p>
+                    </label>
+                </div>
+                <h1>Delivery</h1>
+                
+            </form>
+        )
+    }
 
 
     const renderHeaderOne = () => (
@@ -29,8 +46,16 @@ const CheckoutPage = () => {
     )
 
     return(
-        <div>
+        <div className='checkout-initial-cont'>
             {renderHeaderOne()}
+            <div className='checkout-main-cont'>
+                <div className='checkout-address-payment-section'>
+                    {renderTheAddressPaymentSection()}
+                </div>
+                <div className='checkout-summary-section'>
+                    {renderTheSummarySection()}
+                </div>
+            </div>
         </div>
 
 )
