@@ -1,0 +1,28 @@
+
+.checkout-initial-cont{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-heaader-cont{
+    display: flex;
+    justify-content: space-between;
+    background-color:#ffe300;
+}
+
+.checkout-main-cont{
+    display: flex;
+    height: 100vh;
+    flex-grow: 1;
+}
+
+.checkout-address-payment-section{
+    width:55vw;
+    overflow-y: auto;
+
+}
+
+.checkout-summary-section{
+    width:45vw;
+}
