@@ -19,10 +19,105 @@
 
 .checkout-address-payment-section{
     width:55vw;
-    overflow-y: auto;
+    overflow: hidden; 
+    padding:26px;
+}
 
+.misom-unna{
+    background-color: pink;
+    height: 20px;
+}
+
+.addon-checkout-one{
+    background-color:#ffe300;
+    display:flex;
+    justify-content:center;
+
+    width: 100%;
+
+}
+
+.checkout-form-main-heading{
+    margin-top: 0px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+
+.email-input{
+    width: 100%;
+}
+
+.checkout-header-mini-cont{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
 }
 
 .checkout-summary-section{
     width:45vw;
+    background-color:#f7f8fa;
 }
+
+.include-checkout-style-speci{
+    align-items: center;
+}
+
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 200px;
+background-color: transparent;
+  }
+
+  .email-input-cont{
+max-width: 100%;
+  }
+
+  .input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  input:focus,
+  input:not(:placeholder-shown) {
+    border-color: #ebfa66;
+  }
+  
+  .placeholder {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  
+  input:focus + .placeholder,
+  input:not(:placeholder-shown) + .placeholder {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color:#b7fa1b;
+  }
+  
+  .output {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  

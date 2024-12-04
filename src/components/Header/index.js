@@ -26,22 +26,22 @@ const Header = () => (
                 </HeaderLogoCont>
             </Link>
         
-        <NavigateComponents>
-            <Link to="/booksList" className='link-normal'>
-                <div className='header-navigate-items-cont'>
-                    <MdLibraryBooks className='header-navigate-items-logos' />
-                    <p className='header-navigate-items-content' >Books</p>
-                </div>
-            </Link>
+            <NavigateComponents>
+                <Link to="/booksList" className='link-normal'>
+                    <div className='header-navigate-items-cont'>
+                        <MdLibraryBooks className='header-navigate-items-logos' />
+                        <p className='header-navigate-items-content' >Books</p>
+                    </div>
+                </Link>
 
-            <Link to="/cart" className='link-normal'>
-                <div className='header-navigate-items-cont'>
-                    <FaShoppingCart className='header-navigate-items-logos'  />
-                    <p className='header-navigate-items-content' >Cart</p>
-                </div>
-            </Link>
-            
-        </NavigateComponents>
+                <Link to="/cart" className='link-normal'>
+                    <div className='header-navigate-items-cont'>
+                        <FaShoppingCart className='header-navigate-items-logos'  />
+                        <p className='header-navigate-items-content' >Cart</p>
+                    </div>
+                </Link>
+                
+            </NavigateComponents>
         </HeaderMain>
     </MainContainer>
 )

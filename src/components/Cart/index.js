@@ -78,6 +78,11 @@ const Cart = (props) => {
         </div>
     )
 
+    const onClickProceedToCheckout = () => {
+        const {history} = props
+        history.push('./checkout')
+    }
+
 
     const renderTheCartItems = (cartBooks) => {
         let totalAmount = 0
@@ -108,7 +113,7 @@ const Cart = (props) => {
 
                             </div>
                             <div className='proceed-checkout-cont'>
-                                <button type='button' className='proceed-to-checkout-button'>PROCEED TO CHECKOUT</button>
+                                <button type='button' onClick={onClickProceedToCheckout} className='proceed-to-checkout-button'>PROCEED TO CHECKOUT</button>
                             </div>
                         </div>
                         

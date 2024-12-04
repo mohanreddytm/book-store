@@ -10,6 +10,10 @@ import BooksList from './components/BooksList'
 
 import Cart from './components/Cart'
 
+import CheckoutPage from './components/CheckoutPage'
+
+import CheckOne from './components/CheckOne'
+
 import AllInOne from './complexOne/AllInOne'
 
 import './App.css'
@@ -64,6 +68,8 @@ const App = () => {
           <Route exact path='/booksList' component={BooksList} />
           <Route exact path='/book/:id' component={BookDetails} />
           <Route exact path='/cart' component={Cart} />
+          <Route exact path='/checkout' component={CheckoutPage} />
+          <Route exact path='/check' component={CheckOne} />
         </Switch>
     </AllInOne.Provider>
   )
