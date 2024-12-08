@@ -359,3 +359,7 @@ margin-bottom: 12px;
     }
 
 }
+
+button{
+    cursor: pointer; 
+}

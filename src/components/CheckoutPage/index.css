@@ -257,6 +257,7 @@
   border-radius: 5px;
   outline: none;
   margin-top: 20px;
+  cursor: pointer;  
 }
 
 .checkout-summary-item-image{
