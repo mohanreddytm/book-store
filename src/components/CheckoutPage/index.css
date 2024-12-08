@@ -5,6 +5,11 @@
     flex-direction: column;
 }
 
+.address-payment-section{
+    min-height: 100vh;
+    background-color: transparent;
+}
+
 .checkout-heaader-cont{
     display: flex;
     justify-content: space-between;
@@ -14,12 +19,19 @@
 .checkout-main-cont{
     display: flex;
     height: 100vh;
-    flex-grow: 1;
+
+}
+
+.checkout-names-cont{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .checkout-address-payment-section{
     width:55vw;
-    overflow: hidden; 
+    overflow-y: scroll;
+    scrollbar-width: none;
     padding:26px;
 }
 
@@ -37,11 +49,260 @@
 
 }
 
+
 .checkout-form-main-heading{
     margin-top: 0px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
 }
+
+.checkout-checkbox-cont{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  padding: 0px;
+}
+
+
+
+.checkout-checkbox{
+  margin: 0px;
+  width: 20px;
+}
+
+.checkout-checkbox-content{
+  font-size: 16px;
+  font-weight: 500;
+  color:black;
+  margin-left: 5px;
+  background-color: transparent;
+}
+
+
+.margin-top-input-element{
+  margin-top: 25px;
+}
+
+.checkout-form-country-heading{
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.checkout-form-country-input{
+  width: 100%;
+  padding:10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.checkout-names-input-conts{
+  width: 49%;
+}
+
+.hundread-width-inputs{
+  width: 100%;
+}
+
+
+.checkout-place-cont{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkout-place-mini-conts{
+  width: 32%;
+}
+
+
+.checkout-place-states-cont{
+
+  padding:11px 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  margin: 0px;
+  margin-top: 25px;
+}
+
+.checkout-payment-method-sub-conts{
+  display: flex;
+  flex-direction: column;
+  padding-left: 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.payment-method-type-cont{
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding:10px
+}
+
+.upi-image{
+  width: 50px;
+  margin-left: 10px;
+}
+
+.payment-method-type-icons{
+
+  font-size: 30px;
+}
+
+.payment-method-type-text{
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.payment-method-type-image{
+  height: 30px;
+}
+
+.checkout-shipping-sub-conts{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.delivery-method-image{
+  width: 80%;
+  align-self: center;
+}
+
+.checkout-shipping-every-cont{
+  background-color: #fafafa;
+  border-radius: 10px;
+  width: 32%;
+  height: 20vw;
+  display: flex;
+  padding:1vw;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.delivery-method-heading{
+  color:black;
+  font-size: 14px;
+  font-weight: 500;
+  align-self: center;
+}
+
+.delivery-method-const{
+  color:#3b3939;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.delivery-method-time{
+  color:#3b3939;
+  font-size: 12px;
+  font-weight: 500;
+}
+.delivery-method-price-date-cont{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.checkout-payment-section-summary-cont{
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+}
+.checkout-payment-section-summary-cont-item{
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.checkout-payment-section-summary-cont-delivery-type-cont{
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.checkout-payment-section-summary-cont-delivery-type{
+  color:black;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.checkout-payment-section-summary-head{
+  color:black;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.submit-button{
+  width: 100%;
+  padding: 10px;
+  color:#ededed;
+  background-color: black;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 20px;
+}
+
+.checkout-summary-item-image{
+  width: 100px;
+}
+
+.checkout-summary-section-list{
+  padding: 0px;
+}
+
+.checkout-summary-item-cont{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.checkout-summary-item-sub-cont{
+  display: flex;
+  align-items: center
+}
+
+.checkout-summary-item-title{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.checkout-summary-item-price{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -71,53 +332,55 @@
     align-items: start;
     max-width: 200px;
 background-color: transparent;
-  }
+}
 
-  .email-input-cont{
-max-width: 100%;
-  }
+.email-input-cont{
+    max-width: 100%;
+}
 
-  .input-wrapper {
-    position: relative;
-    width: 100%;
-  }
-  
-  input {
-    width: 100%;
-    padding: 10px 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-  }
-  
-  input:focus,
-  input:not(:placeholder-shown) {
-    border-color: #ebfa66;
-  }
-  
-  .placeholder {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    font-size: 16px;
-    color: #aaa;
-    transition: all 0.3s ease;
-    pointer-events: none;
-  }
-  
-  input:focus + .placeholder,
-  input:not(:placeholder-shown) + .placeholder {
-    top: -10px;
-    left: 10px;
-    font-size: 12px;
-    color:#b7fa1b;
-  }
-  
-  .output {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #333;
-  }
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+
+
+input {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+input:focus,
+input:not(:placeholder-shown) {
+  border-color: #ccc;
+}
+
+.placeholder {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+input:focus + .placeholder,
+input:not(:placeholder-shown) + .placeholder {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color:rgb(8, 16, 9);
+}
+
+.output {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
   
