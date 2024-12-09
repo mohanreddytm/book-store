@@ -258,21 +258,26 @@
   outline: none;
   margin-top: 20px;
   cursor: pointer;  
+  border:none;
 }
 
 .checkout-summary-item-image{
-  width: 100px;
+  width: 80px;
 }
 
 .checkout-summary-section-list{
   padding: 0px;
+  margin: 0px;
 }
 
 .checkout-summary-item-cont{
   list-style-type: none;
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
+  padding:8px;
+  background-color: transparent;
+
 }
 
 .checkout-summary-item-sub-cont{
@@ -281,8 +286,16 @@
 }
 
 .checkout-summary-item-title{
+
+  color:#0d0d0c;
   font-size: 16px;
   font-weight: 500;
+  width: 20vw;
+  max-width: 20vw;
+  margin-left: 0px;
+  overflow: hidden;    
+  white-space: nowrap;
+  text-overflow: ellipsis; 
 }
 
 .checkout-summary-item-price{
@@ -290,16 +303,57 @@
   font-weight: 600;
 }
 
+.summary-item-image-cont{
+  background-color: transparent;
+  display: flex;
 
+}
 
+.checkout-summary-quantity{
+  align-self: flex-start;
+  background-color: rgb(104, 101, 101);
+  border-radius: 10px;
+  padding: 4px 6px;
+  font-size: 8px;
+  font-weight: 500;
+  color:white;
+  margin-left: -20px;
+  top:0;
+  margin-top: -0.1px;
+}
 
+.checkout-summary-initial-cont{
+  padding: 20px;
+}
+.checkout-summary-main-heading{
+  color:#0d0d0c;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-top: 20px;
+}
 
+.checkout-summary-coupan-cont{
+  display: flex;
+  align-self: center;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.checkout-summary-apply-button{
+  background-color: #e1e1df;
+  color:#727272;
+  border:1px solid #bcbcbb;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-left: 14px;
+}
 
-
-
-
-
-
+.checkout-summary-coupan-input{
+  font-size: 14px;
+  font-weight: 500;
+  color:#0d0d0c;
+  padding: 10px 16px;
+}
 
 
 

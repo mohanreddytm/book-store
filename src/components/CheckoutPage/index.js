@@ -26,13 +26,15 @@ const states = [
     "Uttar Pradesh", "Uttarakhand", "West Bengal",
     "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", 
     "Delhi", "Lakshadweep", "Puducherry"
-  ];
+  ]
 
 const CheckoutPage = () => {
 
-    const [email, setEmail] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("")
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+
+    const [totalBooks, setTotalBooks] = useState(0)
 
     const handleInputChange = (e) => {
         setEmail(e.target.value);
@@ -295,15 +297,28 @@ const CheckoutPage = () => {
         </div>
     )
 
-    const renderTheSummaryItemElement = (book) => (
+    const renderTheSummaryItemElement = (book) => {
+        const realPrice = book.price.replace('$','');
+
+        console.log(realPrice)
+        const costPrice = realPrice * book.quantity;
+        console.log(costPrice)
+
+
+        return(
         <li className='checkout-summary-item-cont' key={book.id}>
             <div className='checkout-summary-item-sub-cont'>
-                <img className='checkout-summary-item-image' src={book.image} alt='book image' />
+                <div className='summary-item-image-cont'>
+                    <img className='checkout-summary-item-image' src={book.image} alt='book image' />
+                    <p className='checkout-summary-quantity'>{book.quantity}</p>
+                </div>
+
                 <h1 className='checkout-summary-item-title'>{book.title}</h1>
             </div>
-            <p className='checkout-summary-item-price'>{book.price}</p>
+            <p className='checkout-summary-item-price'>${costPrice}</p>
         </li>
-    )
+    )};
+
 
     const renderTheSummarySection = () => {
         console.log("llll")
@@ -319,9 +334,15 @@ const CheckoutPage = () => {
                             </ul>
                             <h1 className='checkout-summary-main-heading'>Enter Discount Code or Gift Card Number</h1>
                             <div className='checkout-summary-coupan-cont'>
-                                <input className='checkout-summary-coupan-input' type='text' placeholder='' />
+                                <input className='checkout-summary-coupan-input' placeholder='Discount code or gift card' type='text'/>
                                 <button className='checkout-summary-apply-button'>Apply</button>
                             </div>
+                            <div>
+                                <h1>
+                                    Subtotal - 
+                                </h1>
+                            </div>
+                            <h1></h1>
                             
                         </div>
                     )
