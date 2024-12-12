@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {Link} from 'react-router-dom'
 
 import { FaCreditCard } from "react-icons/fa6";
 import { TiMessageTyping } from "react-icons/ti";
 
-import { FaShoppingCart,FaRegQuestionCircle } from "react-icons/fa";
+import { FaShoppingCart,FaRegQuestionCircle,FaAngleDown ,FaAngleUp  } from "react-icons/fa";
 
 
 import AllInOne from '../../complexOne/AllInOne'
@@ -33,7 +33,11 @@ const CheckoutPage = () => {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
 
+    const [toggleSummary, setToggleSummary] = useState(false)
+
     const [totalBooks, setTotalBooks] = useState(0)
+
+
 
     const handleInputChange = (e) => {
         setEmail(e.target.value);
@@ -47,9 +51,7 @@ const CheckoutPage = () => {
         setLastName(e.target.value);
     };
 
-    const renderTheAddressPaymentSection = () => {
-        console.log("m")
-        return(
+    const renderTheAddressPaymentSection = () => (
         <div className='address-payment-section'>
             <form className='checkout-form-cont'>
                 <h1 className='checkout-form-main-heading'>Contact</h1>
@@ -273,7 +275,7 @@ const CheckoutPage = () => {
             </form>
         </div>
         )
-    }
+    
     
     const renderHeaderOne = () => (
         <div className='header-first-cont addon-checkout-one'>
@@ -298,12 +300,7 @@ const CheckoutPage = () => {
 
     const renderTheSummaryItemElement = (book) => {
         const realPrice = book.price.replace('$','');
-
-        console.log(realPrice)
         const costPrice = realPrice * book.quantity;
-        console.log(costPrice)
-
-
         return(
         <li className='checkout-summary-item-cont' key={book.id}>
             <div className='checkout-summary-item-sub-cont'>
@@ -319,9 +316,7 @@ const CheckoutPage = () => {
     )};
 
 
-    const renderTheSummarySection = () => {
-        console.log("llll")
-        return(
+    const renderTheSummarySection = () => (
             <AllInOne>
                 {
                 value => {
@@ -362,7 +357,23 @@ const CheckoutPage = () => {
             </AllInOne>
             
         )
+    
+
+
+    const onClickToggleOne = () => {
+        setToggleSummary((prevState) => !prevState)
     }
+
+    const renderShowSummaryTab = () => (
+            <div className='mobile-smart-tab-initial-cont'>
+                <div className='mobile-smart-tab-main-cont'>
+                    <h1 className='mobile-smart-tab-head' onClick={onClickToggleOne}>Show order summary <FaAngleDown className='mobile-smart-tab-arrow-button' /></h1>
+                    <h1 className='mobile-smart-tab-amount'>$350</h1>
+                </div>
+                
+            </div>
+        )
+    
 
     return(
         <AllInOne.Consumer>
@@ -374,14 +385,21 @@ const CheckoutPage = () => {
                     return <Redirect to='/cart' />
                 }
 
+                const specialClass = toggleSummary ? "show-summary-cont" : "dont-show-summary-cont"
+
                 return(
                     <div className='checkout-initial-cont'>
                         {renderHeaderOne()}
+                        <div className='mobile-one-summary-page'>
+                            {renderShowSummaryTab()}
+                        </div>
+
                         <div className='checkout-main-cont'>
                             <div className='checkout-address-payment-section'>
+                                
                                 {renderTheAddressPaymentSection()}
                             </div>
-                            <div className='checkout-summary-section'>
+                            <div className={`${specialClass} checkout-summary-section`}>
                                 {renderTheSummarySection()}
                             </div>
                         </div>

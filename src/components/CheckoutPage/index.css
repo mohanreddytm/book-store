@@ -168,6 +168,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 
@@ -324,6 +325,9 @@
 
 .checkout-summary-initial-cont{
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+
 }
 .checkout-summary-main-heading{
   color:#0d0d0c;
@@ -497,4 +501,124 @@ input:not(:placeholder-shown) + .placeholder {
   font-size: 16px;
   color: #333;
 }
+
+
+
+
+.mobile-one-summary-page{
+  display: none;
+}
+.mobile-smart-tab-initial-cont{
+  background-color: #f7f7f6;
+  display: flex;
+  justify-content: center;
+ 
+ 
+}
+
+.mobile-smart-tab-main-cont{
+  width: 70vw;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  margin: 10px;
+}
+
+.mobile-smart-tab-head{
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.mobile-smart-tab-amount{
+  font-size: 16px;
+  font-size: 600;
+}
+
+.mobile-smart-tab-arrow-button{
+
+  margin-left: 4px;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .checkout-main-cont{
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .checkout-summary-section{
+    display: none;
+    order: 1;
+    flex-grow: 1;
+    flex-grow: 1;
+    height: auto;
+    width: 70vw;
+  }
+  .checkout-address-payment-section{
+    order:2;
+    height: auto;
+    width: 80%;
+  }
   
+  .checkout-payment-section-summary-cont{
+    flex-direction: column;
+    width: auto;
+  }
+  .checkout-payment-section-summary-cont-item{
+    width: 100%;
+
+  }
+  .checkout-shipping-sub-conts{
+    height:30vw;
+
+  }
+  .checkout-shipping-every-cont{
+    width: auto;
+    padding: 20px;
+    height: 100%;
+    margin: 10px;
+  }
+  .mobile-one-summary-page{
+    display: inline;
+  }
+  .show-summary-cont{
+    display: inline;
+
+  }
+  .dont-show-summary-cont{
+    display: none;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .checkout-shipping-sub-conts{
+    flex-direction: column;
+    width: auto;
+    height: auto;
+  }
+  .checkout-shipping-every-cont{
+    width: auto;
+    padding: 20px;
+    height: auto;
+  }
+  .delivery-method-image{
+    width: 50vw;
+  }
+  .checkout-address-payment-section{
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .checkout-summary-section{
+    
+    width: 100vw;
+  }
+
+  .checkout-summary-item-title{
+    width: 50vw;
+    max-width: 50vw;
+    background-color: transparent;
+  }
+}
