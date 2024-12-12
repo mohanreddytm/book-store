@@ -338,6 +338,7 @@
   align-self: center;
   margin-top: 10px;
   padding-left: 10px;
+  margin-bottom: 30px;
 }
 .checkout-summary-apply-button{
   background-color: #e1e1df;
@@ -354,6 +355,64 @@
   color:#0d0d0c;
   padding: 10px 16px;
 }
+
+.checkout-summary-mini-containers{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.checkout-summary-mini-heading{
+  font-size: 16px;
+  font-weight: 500;
+  color:#1e1e1c;
+  margin: 6px;
+  padding: 0px;
+
+}
+
+.checkout-summary-mini-amount{
+  color:#1e1e1c;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0px;
+}
+.checkout-summary-mini-sub-cont{
+  display: flex;
+  align-items: center;
+}
+.quetion-add-on{
+  margin-left: 0px;
+  font-size: 13px;
+  
+}
+
+.checkout-summary-total-head{
+  font-size: 20px;
+  font-weight: 600;
+  color:#0d0d0c;
+}
+.checkout-summary-taxes-para{
+  color:#333;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.checkout-summary-section{
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+
+
+
+
+
+
 
 
 

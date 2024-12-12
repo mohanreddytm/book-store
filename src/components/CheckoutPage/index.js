@@ -5,8 +5,7 @@ import {Link} from 'react-router-dom'
 import { FaCreditCard } from "react-icons/fa6";
 import { TiMessageTyping } from "react-icons/ti";
 
-
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart,FaRegQuestionCircle } from "react-icons/fa";
 
 
 import AllInOne from '../../complexOne/AllInOne'
@@ -337,12 +336,24 @@ const CheckoutPage = () => {
                                 <input className='checkout-summary-coupan-input' placeholder='Discount code or gift card' type='text'/>
                                 <button className='checkout-summary-apply-button'>Apply</button>
                             </div>
-                            <div>
-                                <h1>
-                                    Subtotal - 
+                            <div className='checkout-summary-mini-containers'>
+                                <h1 className='checkout-summary-mini-heading'>
+                                    Subtotal - 0 items
                                 </h1>
+                                <p className='checkout-summary-mini-amount'>$353.84</p>
                             </div>
-                            <h1></h1>
+                            <div className='checkout-summary-mini-containers'>
+                                <div className='checkout-summary-mini-sub-cont'>
+                                    <h1 className='checkout-summary-mini-heading'>Shipping</h1>
+                                    <FaRegQuestionCircle className='checkout-summary-mini-heading quetion-add-on' />
+                                </div>
+                                <p className='checkout-summary-mini-amount'>FREE</p>
+                            </div>
+                            <div className='checkout-summary-mini-containers'>
+                                <h1 className='checkout-summary-mini-heading checkout-summary-total-head'>Total</h1>
+                                <p className='checkout-summary-mini-amount checkout-summary-total-head'>$355</p>
+                            </div>
+                            <p className='checkout-summary-taxes-para'>Including $0.00 in taxes</p>
                             
                         </div>
                     )
