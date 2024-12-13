@@ -32,24 +32,62 @@ const CheckoutPage = () => {
     const [email, setEmail] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
+    const [address, setAddress] = useState('') 
+    const [apartment, setApartment] = useState('') 
+    const [city, setCity] = useState('')
+    const [pin, setPin] = useState('') 
+    const [phone, setPhone] = useState('') 
+
+    const [error, setError] = useState("")
 
     const [toggleSummary, setToggleSummary] = useState(false)
 
     const [totalBooks, setTotalBooks] = useState(0)
 
+    let totalPriceSummary = 0
 
 
     const handleInputChange = (e) => {
-        setEmail(e.target.value);
-    };
+        setEmail(e.target.value)
+    }
 
     const handleFirstName = (e) => {
-        setFirstName(e.target.value);
-    };
+        setFirstName(e.target.value)
+    }
 
     const handleLastName = (e) => {
-        setLastName(e.target.value);
-    };
+        setLastName(e.target.value)
+    }
+
+    const handleAddress = (e) => {
+        setAddress(e.target.value)
+    }
+
+    const handleApartment = (e) => {
+        setApartment(e.target.value)
+    }
+
+    const handleCity = (e) => {
+        setCity(e.target.value)
+    }
+
+
+    const handlePin = (e) => {
+        setPin(e.target.value)
+    }
+
+    const handlePhone = (e) => {
+        setPhone(e.target.value)
+    }
+
+    const handleBlur = () => {
+        if (!email.trim()) {
+          setError("Please enter a valuable input");
+        } else {
+          setError("");
+        }
+      }
+    
 
     const renderTheAddressPaymentSection = () => (
         <div className='address-payment-section'>
@@ -62,13 +100,15 @@ const CheckoutPage = () => {
                         type="text"
                         id="nameInput"
                         value={email}
+                        onBlur={handleBlur}
                         onChange={handleInputChange}
                         placeholder=" "
                         />
                         <label htmlFor="nameInput" className="placeholder">
-                        Email
+                            Email
                         </label>
                     </div>
+                    {error && <p style={{ color: "red" }}>{error}</p>}
                 </div>
                 <div className='checkout-checkbox-cont'>
                     <input id='emailCheckBox' className='checkout-checkbox' type='checkbox' />
@@ -89,6 +129,7 @@ const CheckoutPage = () => {
                             className='email-input'
                             type="text"
                             id="nameInput"
+                            onBlur={handleBlur}
                             value={firstName}
                             onChange={handleFirstName}
                             placeholder=" "
@@ -97,6 +138,7 @@ const CheckoutPage = () => {
                                 First Name
                             </label>
                         </div>
+                        {error && <p style={{ color: "red" }}>{error}</p>}
                     </div>
                     <div className="input-container checkout-names-input-conts email-input-cont">
                         <div className="input-wrapper">
@@ -120,8 +162,8 @@ const CheckoutPage = () => {
                         className='email-input'
                         type="text"
                         id="nameInput"
-                        value={firstName}
-                        onChange={handleFirstName}
+                        value={address}
+                        onChange={handleAddress}
                         placeholder=" "
                         />
                         <label htmlFor="nameInput" className="placeholder">
@@ -135,8 +177,8 @@ const CheckoutPage = () => {
                         className='email-input'
                         type="text"
                         id="nameInput"
-                        value={firstName}
-                        onChange={handleFirstName}
+                        value={apartment}
+                        onChange={handleApartment}
                         placeholder=" "
                         />
                         <label htmlFor="nameInput" className="placeholder">
@@ -151,8 +193,8 @@ const CheckoutPage = () => {
                             className='email-input'
                             type="text"
                             id="nameInput"
-                            value={firstName}
-                            onChange={handleFirstName}
+                            value={city}
+                            onChange={handleCity}
                             placeholder=" "
                             />
                             <label htmlFor="nameInput" className="placeholder">
@@ -173,8 +215,8 @@ const CheckoutPage = () => {
                             className='email-input'
                             type="text"
                             id="nameInput"
-                            value={firstName}
-                            onChange={handleFirstName}
+                            value={pin}
+                            onChange={handlePin}
                             placeholder=" "
                             />
                             <label htmlFor="nameInput" className="placeholder">
@@ -189,8 +231,8 @@ const CheckoutPage = () => {
                         className='email-input'
                         type="text"
                         id="nameInput"
-                        value={firstName}
-                        onChange={handleFirstName}
+                        value={phone}
+                        onChange={handlePhone}
                         placeholder=" "
                         />
                         <label htmlFor="nameInput" className="placeholder">
@@ -299,8 +341,9 @@ const CheckoutPage = () => {
     )
 
     const renderTheSummaryItemElement = (book) => {
-        const realPrice = book.price.replace('$','');
-        const costPrice = realPrice * book.quantity;
+        const realPrice = book.price.replace('$','')
+        const costPrice = realPrice * book.quantity
+        totalPriceSummary += costPrice
         return(
         <li className='checkout-summary-item-cont' key={book.id}>
             <div className='checkout-summary-item-sub-cont'>
@@ -311,7 +354,7 @@ const CheckoutPage = () => {
 
                 <h1 className='checkout-summary-item-title'>{book.title}</h1>
             </div>
-            <p className='checkout-summary-item-price'>${costPrice}</p>
+            <p className='checkout-summary-item-price'>${costPrice.toFixed(2)}</p>
         </li>
     )};
 
@@ -335,7 +378,7 @@ const CheckoutPage = () => {
                                 <h1 className='checkout-summary-mini-heading'>
                                     Subtotal - 0 items
                                 </h1>
-                                <p className='checkout-summary-mini-amount'>$353.84</p>
+                                <p className='checkout-summary-mini-amount'>${totalPriceSummary.toFixed(2)}</p>
                             </div>
                             <div className='checkout-summary-mini-containers'>
                                 <div className='checkout-summary-mini-sub-cont'>
@@ -346,7 +389,7 @@ const CheckoutPage = () => {
                             </div>
                             <div className='checkout-summary-mini-containers'>
                                 <h1 className='checkout-summary-mini-heading checkout-summary-total-head'>Total</h1>
-                                <p className='checkout-summary-mini-amount checkout-summary-total-head'>$355</p>
+                                <p className='checkout-summary-mini-amount checkout-summary-total-head'>${totalPriceSummary.toFixed(2)}</p>
                             </div>
                             <p className='checkout-summary-taxes-para'>Including $0.00 in taxes</p>
                             

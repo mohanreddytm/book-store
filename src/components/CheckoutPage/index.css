@@ -622,3 +622,9 @@ input:not(:placeholder-shown) + .placeholder {
     background-color: transparent;
   }
 }
+
+.checkout-summary-coupan-cont{
+
+  width: 100%;
+
+}
