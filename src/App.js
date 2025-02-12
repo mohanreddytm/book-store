@@ -16,6 +16,8 @@ import CheckOne from './components/CheckOne'
 
 import AllInOne from './complexOne/AllInOne'
 
+import LoginPage from './components/LoginPage'
+
 import './App.css'
 
 const App = () => {
@@ -64,6 +66,7 @@ const App = () => {
   return(
     <AllInOne.Provider value={{deleteCartItem:deleteTheCartItemFromCartList,modifyCartBooksFun:updateCartQuantity,addCartBooksFun:updateCartBooksItems,cartBooks:cartBooksItems}}>
         <Switch>
+          <Route exact path='/login' component={LoginPage} />
           <Route exact path='/' component={Home} />
           <Route exact path='/booksList' component={BooksList} />
           <Route exact path='/book/:id' component={BookDetails} />

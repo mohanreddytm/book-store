@@ -1,107 +1,104 @@
-# Title
+ 📚 Bookstore Web Application
 
-    Interactive Bookstore Application
+🌟 Overview
 
-## Objective
+The Bookstore Web Application is a fully responsive online bookstore where users can browse books, filter them based on price, view book details, add items to the cart, and proceed to checkout. The project is currently under development, with authentication features planned for future updates.
 
-    The application should allow users to browse and search for books, view book details, add      books  to a shopping cart, and place an order.
+🚀 Features
 
-## Tech Stack
+### 🏠 Home Page
 
-    ReactJS, React Router, Redux or React Context API, CSS or CSS frameworks, Git, and GitHub for hosting the repository.
+![Description](./assets/images/homepage.png)
 
-## Completion Instructions
+#### 🏠 Home Page Features:
+- **Carousel of books**  
+- **Static header** with navigation options for `Books` and `Cart`  
+- **"Explore Books" button** redirects users to the `Books List`
 
-### Functionality
+### 📖 Books List Page
 
-#### Must Have
-* Build a ReactJS application with multiple pages/components, including Home, Book Listing, Book Details, Shopping Cart, and Checkout pages
-* Implement features such as book search, book filtering, add to cart, remove from cart, and order placement.
+![Description](./assets/images/bookslistpage.png)
 
-#### Nice to Have
+#### 📖 Books List Page Features:
 
-* Implementing user authentication, unit tests, and deploying the application on a hosting platform.
-
-### Guidelines to develop a project
-
-#### Must Have
-
-
-* Create a new public repository on GitHub for the assignment.
-* Commit your code regularly and include clear commit messages.
-* Include a README file explaining the project setup, usage instructions, and any additional  information.
-* Ensure the repository is well-organized and easy to navigate.
-
-#### Nice to Have
-NA
+- Displays available books with a **search bar** and **price range filter**  
+- **Responsive Design:**  
+  - On larger screens, the filter appears on the **left panel**  
+  - On mobile, a **filter button** opens a pop-up with filter options  
+- Clicking a book redirects users to the **Book Details Page**  
 
 
-### ROUTES
+### 📘 Book Details Page
 
-* Page------------------Route-------------------Path
-* Home------------------Home--------------------/
-* Book List-------------Book List---------------/books
-* Book Details----------Book Details------------/books/:id
-* Cart------------------Cart--------------------/cart
-* Checkout--------------Checkout----------------/checkout
-* Not Found-------------Not Found---------------/not-found
+![Description](./assets/images/bookdetailspage.png)
 
-## Resources
-
-### Pages
-
-#### Page: Home
-Page Details:
-* Header - links for pages Home, Book List, Cart
-* Banner - Heading, description, and “Explore Books” Button
-Navigation:
+#### 📖 Book Details Page Features:
+- Displays **book title, author, specifications, and quantity selector**  
+- **Add to Cart functionality** ✅ (Fully functional)  
+- **Responsive Design:**  
+  - On **larger screens**, the layout remains structured with book details and actions side by side  
+  - On **mobile screens**, the **"Add to Cart" and "Buy Now"** buttons are positioned at the bottom for easy access  
+- **Upcoming Features:**  
+  - `"Buy Now"` button (Planned for future updates)  
+  - `"Check Pincode"` feature (Planned for future updates)  
 
 
-#### Page: Book List
-Page Details:
-Header - links for pages Home, Book List, Cart, Book Items, Search, Filter
-Navigation:
-* Book List" link in Header
-* "Explore Books" Button
-* "Back" Button in Book Details Page
+### 🛒 Cart Page
 
-#### Page: Book Details
-Page Details:
-* Book detailed Information
-* "Add to cart" Button
-* "Back" button
-Navigation: Each Book Item in Book List Page
+![Description](./assets/images/cartpage.png)
+
+#### 🛒 Cart Page Features:
+- Shows **list of added books** with **quantity, price, and delete option**  
+- Displays an **order summary** with a `"Proceed to Checkout"` button redirectes to checkout page.
+- **Responsive Design:**  
+  - On **larger screens**, book details and order summary appear **side by side**  
+  - On **mobile screens**, book details are **stacked vertically** for better readability  
 
 
-#### Page: Cart
-Page Details:
-* Cart Items,
-* "Remove" Button
-* Order Summary
-* "Checkout" Button
-Navigation:
-* "Cart" link in Header
-* "Back" Button in Checkout Page
+### 🏷️ Checkout Page
+
+![Description](./assets/images/checkoutpage.png)
+
+#### 🏷️ Checkout Page Features:
+- **Personal Details Form, Shipping Method, and Payment Method**  
+- **Order Summary:**  
+  - On **desktop view**, the order summary appears on the **right side**  
+  - On **mobile view**, order details are **collapsed under a `"Show Item Details"` button** for better accessibility  
+- **Upcoming Feature:**  
+  - `"Discount/Gift"` option (Planned but not yet implemented)  
 
 
-#### Page: Checkout
+🛠 Technologies Used
 
-Page Details:
-"Back" Button,
-Order Form (Personal Details, Summary, Place Order)
-Navigation:
-Checkout in Cart
+## 🚀 Technologies Used:
+
+| Technology         | Description  |
+|--------------------|-------------|
+| ⚛️ **React.js**   | Frontend development |
+| 🎨 **CSS & Styled Components** | Styling (`WantedStyle.js` for additional styles in the header) |
+| 📜 **JavaScript**  | Data handling and dynamic filtering |
+| 🌐 **React Router** | Seamless navigation |
 
 
-### Design files
+## 🔮 Future Improvements:
+1️⃣ **Implement user authentication** (Login/Signup) 🔑  
+2️⃣ **Improve checkout flow** with payment integration 💳  
+3️⃣ **Enhance responsiveness** of the book details page 📱  
+4️⃣ **Add a backend** for order management & authentication 🖥️  
 
-    Home, book list, book details, shopping cart, checkout  
 
-### APIs
+## 🏗 How to Run the Project
 
-    Books, BookDetails, search, filter
-    Reference : https://api.itbook.store/
+1. **Clone the repository**  
+   `git clone https://github.com/mohanreddytm/book-store`  
 
-### Third-party packages
+2. **Navigate into the project folder**  
+   `cd book-store`  
 
-NA
+3. **Install dependencies**  
+   `npm install`  
+
+4. **Start the project**  
+   `npm start`  
+
+5. **Open in browser** at [http://localhost:3000/](http://localhost:3000/) 🚀  
