@@ -1,8 +1,15 @@
 import { useState,useEffect } from "react";
 
+import Cookies from 'js-cookie';
+
 import './index.css';
 
-const LoginPage = () => {
+const LoginPage = (props) => {
+
+    const jwtToken = Cookies.get('jwtToken');
+    if(jwtToken){
+        props.history.replace('/');
+    }
 
     const [isNewUser,setIsNewUser] = useState(false);
     const [nameInput,setNameInput] = useState('');
@@ -83,6 +90,16 @@ const LoginPage = () => {
         }
         const response =  await fetch('https://forrender-1cde.onrender.com/login/',options);
         const data = await response.json();
+        if(response.ok) {
+            if(data === undefined){
+                console.log('Invalid Email or Password');
+            }else{
+                Cookies.set('jwtToken',data.jwtToken);
+                props.history.replace('/');
+            }
+        }else{
+            console.log('Invalid Email or Password');
+        }
         console.log(data);
 
     }
