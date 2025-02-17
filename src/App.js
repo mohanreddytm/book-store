@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
-import {Route, Switch, Redirect} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
+
+import ProtectedRoute from './components/ProtectedRoute'
 
 import Home from './components/Home'
 
@@ -11,8 +13,6 @@ import BooksList from './components/BooksList'
 import Cart from './components/Cart'
 
 import CheckoutPage from './components/CheckoutPage'
-
-import CheckOne from './components/CheckOne'
 
 import AllInOne from './complexOne/AllInOne'
 
@@ -44,7 +44,7 @@ const App = () => {
   }
 
   const deleteTheCartItemFromCartList = (id) => {
-    const filteredBooks = cartBooksItems.filter((eachBook) => eachBook.id != id)
+    const filteredBooks = cartBooksItems.filter((eachBook) => eachBook.id !== id)
     setCartBooksItems(filteredBooks)
   }
 
@@ -67,12 +67,11 @@ const App = () => {
     <AllInOne.Provider value={{deleteCartItem:deleteTheCartItemFromCartList,modifyCartBooksFun:updateCartQuantity,addCartBooksFun:updateCartBooksItems,cartBooks:cartBooksItems}}>
         <Switch>
           <Route exact path='/login' component={LoginPage} />
-          <Route exact path='/' component={Home} />
-          <Route exact path='/booksList' component={BooksList} />
-          <Route exact path='/book/:id' component={BookDetails} />
-          <Route exact path='/cart' component={Cart} />
-          <Route exact path='/checkout' component={CheckoutPage} />
-          <Route exact path='/check' component={CheckOne} />
+          <ProtectedRoute exact path='/' component={Home} />
+          <ProtectedRoute exact path='/booksList' component={BooksList} />
+          <ProtectedRoute exact path='/book/:id' component={BookDetails} />
+          <ProtectedRoute exact path='/cart' component={Cart} />
+          <ProtectedRoute exact path='/checkout' component={CheckoutPage} />
         </Switch>
     </AllInOne.Provider>
   )

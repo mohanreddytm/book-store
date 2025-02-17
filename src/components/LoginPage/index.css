@@ -1,7 +1,7 @@
 .login-page{
     background-color: #e3e3e3;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 100vh;
 }
@@ -22,6 +22,25 @@
     font-size: 14px;
     font-weight: 500;
     margin: 0px;
+}
+
+.login-image{
+    width: 50%;
+
+}
+
+.password-input-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eye-icon{
+    cursor: pointer;
+    margin-left: -30px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    color: #454444;
 }
 
 .input-one{
@@ -60,4 +79,10 @@
     font-weight: 500;
     margin-left: 5px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+    .login-image{
+        display: none;
+    }
 }
