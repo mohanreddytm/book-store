@@ -67,11 +67,12 @@
     flex-direction: column;
 }
 
-.profile-content-text {
+.profile-content-text{
     padding: 8px;
     cursor: pointer;
     margin: 0;
     transition: background 0.2s ease;
+    font-size: 12px;
 }
 
 .profile-content-text:hover {

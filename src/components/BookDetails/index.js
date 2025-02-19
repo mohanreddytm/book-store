@@ -32,6 +32,8 @@ const BookDetails = (props) => {
 
     const [theBookDetail, setTheBookDetail] = useState([])
 
+    const [showAddedBooks, setShowAddedBooks] = useState(false)
+
     const handleChange = (event) => {
         const quantityValue = event.target.value
         setQuantity(+quantityValue)
@@ -73,6 +75,10 @@ const BookDetails = (props) => {
                     const onClickCartButton = () => {
                         setQuantity(1)
                         addCartBooksFun(exportBookForCart)
+                        setShowAddedBooks(true)
+                        setTimeout(() => {
+                            setShowAddedBooks(false)
+                        }, 2000);
 
                     }
 
@@ -136,7 +142,7 @@ const BookDetails = (props) => {
                                     </div>
                                 </div>
                                 <div className="book-details-add-cart-cont">
-                                    <button onClick={onClickCartButton} type='button' className="add-to-cart-button">ADD TO CART</button>
+                                    <button onClick={onClickCartButton} type='button' className="add-to-cart-button">{showAddedBooks ? "ADDED" : "ADD TO CART"}</button>
                                     <button type='button' className="buy-it-now-button">BUY IT NOW</button>
                                 </div>
 
