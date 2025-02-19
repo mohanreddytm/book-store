@@ -48,6 +48,41 @@
     max-width: 100vw;
 }
 
+.profile-container {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-content {
+    position: absolute;
+    top: 9.5vh; /* Adjust to prevent overlap with profile icon */
+    left: 0;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensures it stays above other elements */
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-content-text {
+    padding: 8px;
+    cursor: pointer;
+    margin: 0;
+    transition: background 0.2s ease;
+}
+
+.profile-content-text:hover {
+    background: #f0f0f0;
+}
+
+.header-navigate-items-cont{
+    cursor: pointer;
+}
+
+
 @media screen and (min-width: 700px) {
     .header-navigate-items-content{
         display: inline;
@@ -62,6 +97,10 @@
 }
 
 @media screen and (max-width:700px) {
+    
+    .profile-content {
+        top: 6vh;;
+    }
     .header-first-cont{
         height:10vh;    
     }
@@ -78,6 +117,9 @@
 @media screen and (max-width:500px) {
     .header-first-cont{
         height:8vh;    
+    }
+    .profile-content {
+        top: 5vh;;
     }
 
     
