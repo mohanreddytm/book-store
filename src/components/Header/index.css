@@ -84,6 +84,83 @@
 }
 
 
+.open-btn {
+color: black;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+background-color: transparent;
+outline: none;
+}
+  
+  /* Centering & Resizing Popup */
+.popup-content {
+    position: fixed !important;
+    top: -10% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px;  /* Set width */
+    max-height: 200px; /* Reduce height */
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.popup-inner{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.close-btn-cont{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+  
+.close-logout{
+    padding: 0px;
+    margin-right: auto;
+}
+
+.close{
+    color: #010c1c;
+    background-color: rgb(185, 183, 183);
+    border: none;
+    font-family: "Roboto";
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 10px 20px;
+    outline: none;
+}
+
+.logout-btn{
+    background-color: rgb(86, 86, 253);
+    border: none;
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 4px;
+}
+
+.popup-mini-content-para{
+    align-self: center;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+  
+
+  
 @media screen and (min-width: 700px) {
     .header-navigate-items-content{
         display: inline;
