@@ -423,8 +423,11 @@ const CheckoutPage = () => {
             {value => {
                 const {cartBooks} = value
 
+                
+
 
                 if(cartBooks.length === 0){
+                    console.log("al;")
                     return <Redirect to='/cart' />
                 }
 

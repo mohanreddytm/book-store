@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 
 import {Route, Switch} from 'react-router-dom'
 
@@ -25,6 +25,15 @@ const App = () => {
 
   const [cartBooksItems, setCartBooksItems] = useState([])
 
+  useEffect(() => {
+    const books = JSON.parse(localStorage.getItem('cartBooks'))
+    if(books){
+      setCartBooksItems(books)
+    }
+
+    
+  }, [])
+
   const updateCartBooksItems = (book) => {
     setCartBooksItems((prevState) => {
       let isOk = true
@@ -38,14 +47,17 @@ const App = () => {
         return eachBook
       })
       if(isOk){
+        localStorage.setItem('cartBooks', JSON.stringify([...prevState,book]));
         return [...prevState,book]
       }
+        localStorage.setItem('cartBooks', JSON.stringify(isAlreadyThere));
         return isAlreadyThere
   })
   }
 
   const deleteTheCartItemFromCartList = (id) => {
     const filteredBooks = cartBooksItems.filter((eachBook) => eachBook.id !== id)
+    localStorage.setItem('cartBooks', JSON.stringify(filteredBooks));
     setCartBooksItems(filteredBooks)
   }
 
@@ -58,7 +70,7 @@ const App = () => {
         }
         return eachBook
       })
-      console.log(updateQuantity)
+      localStorage.setItem('cartBooks', JSON.stringify(updateQuantity));
       return  updateQuantity
     }
     )

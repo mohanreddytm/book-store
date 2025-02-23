@@ -1,7 +1,8 @@
 import { CgProfile } from "react-icons/cg";
 import Popup from "reactjs-popup";
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import Cookies from "js-cookie";
+import { Link, withRouter } from 'react-router-dom';
 import { MdLibraryBooks } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import "reactjs-popup/dist/index.css";
@@ -9,7 +10,7 @@ import { IoMdClose } from "react-icons/io";
 import './index.css';
 import { MainContainer, HeaderLogoCont, HeaderLogo, NavigateComponents, HeaderMain } from './WantedStyle';
 
-const Header = () => {
+const Header = (props) => {
   const [profileContent, setProfileContent] = useState(false);
 
   const onClickProfileOne = () => {
@@ -17,7 +18,10 @@ const Header = () => {
   };
 
   const onClickLogoutButton = () => {
-    console.log("logout");
+    Cookies.remove("jwtToken");
+    const { history } = props;
+    history.replace("/login");
+
   };
 
   return (
@@ -84,4 +88,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

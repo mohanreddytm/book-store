@@ -17,6 +17,14 @@ const Cart = (props) => {
         history.push('/booksList')
     }
 
+    useEffect(() => {
+        const books = JSON.parse(localStorage.getItem('cartBooks'))
+        console.log("first")
+        if(books == undefined){
+            console.log('ues')
+        }
+    })
+
     
     const everyCartItem = (book) => {
 
@@ -85,6 +93,7 @@ const Cart = (props) => {
 
 
     const renderTheCartItems = (cartBooks) => {
+        console.log("its")
         let totalAmount = 0
         return(
             <div className='cart-products-main-cont'>
@@ -130,6 +139,20 @@ const Cart = (props) => {
             {
                 value => {
                     const {cartBooks} = value
+                    const cartLocalStorageBooks = JSON.parse(localStorage.getItem('cartBooks'));
+                    if(cartLocalStorageBooks == undefined){
+                        return(
+                            <div className='cart-initial-cont'>
+                                <Header />
+                                <div className='cart-main-cont'>
+                                    <h1 className='cart-main-heading'>Cart</h1>
+                                    <div>
+                                        {renderEmptyCart()}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
 
                     return(
                         <div className='cart-initial-cont'>
@@ -137,7 +160,7 @@ const Cart = (props) => {
                             <div className='cart-main-cont'>
                                 <h1 className='cart-main-heading'>Cart</h1>
                                 <div>
-                                    {cartBooks.length > 0 ? renderTheCartItems(cartBooks) : renderEmptyCart()}
+                                    {cartLocalStorageBooks.length > 0 ? renderTheCartItems(cartLocalStorageBooks) : renderEmptyCart()}
                                 </div>
                             </div>
                         </div>
