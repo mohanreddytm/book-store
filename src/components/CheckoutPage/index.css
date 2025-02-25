@@ -186,6 +186,7 @@
   padding:1vw;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
 
 }
 
@@ -410,6 +411,32 @@
   overflow-y: scroll;
   scrollbar-width: none;
 }
+
+
+.error-message {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(251, 175, 34);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

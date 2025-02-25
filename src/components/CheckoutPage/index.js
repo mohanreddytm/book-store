@@ -38,9 +38,17 @@ const CheckoutPage = () => {
     const [pin, setPin] = useState('') 
     const [phone, setPhone] = useState('') 
 
-    const [error, setError] = useState("")
+    const [errorEmail, setErrorEmail] = useState(false)
 
     const [toggleSummary, setToggleSummary] = useState(false)
+    const [errorFirstName, setErrorFirstName] = useState(false)
+    const [errorLastName, setErrorLastName] = useState(false)
+    const [errorAddress, setErrorAddress] = useState(false)
+    const [errorApartment, setErrorApartment] = useState(false)
+    const [errorCity, setErrorCity] = useState(false)
+    const [errorPin, setErrorPin] = useState(false)
+    const [errorPhone, setErrorPhone] = useState(false)
+
 
     const [totalBooks, setTotalBooks] = useState(0)
 
@@ -48,46 +56,78 @@ const CheckoutPage = () => {
 
 
     const handleInputChange = (e) => {
+        if(e.target.value.trim() === ""){
+            setErrorEmail(true)
+        }else{
+            setErrorEmail(false)
+        }
         setEmail(e.target.value)
     }
 
     const handleFirstName = (e) => {
+        if(e.target.value.trim() === ""){
+            setErrorFirstName(true)
+        }else{
+            setErrorFirstName(false)
+        }
         setFirstName(e.target.value)
     }
 
     const handleLastName = (e) => {
+        if(e.target.value.trim() === ""){
+            setErrorLastName(true)
+        }else{
+            setErrorLastName(false)
+        }
         setLastName(e.target.value)
     }
 
     const handleAddress = (e) => {
+        if(e.target.value.trim() === ""){
+            setErrorAddress(true)
+        }else{
+            setErrorAddress(false)
+        }
         setAddress(e.target.value)
     }
 
     const handleApartment = (e) => {
+        if(e.target.value.trim() === ""){
+            setErrorApartment(true)
+        }else{
+            setErrorApartment(false)
+        }
         setApartment(e.target.value)
     }
 
     const handleCity = (e) => {
+        if(e.target.value.trim() === ""){
+            setErrorCity(true)
+        }else{
+            setErrorCity(false)
+        }
         setCity(e.target.value)
     }
 
 
     const handlePin = (e) => {
+        if(e.target.value.trim() === ""){
+            setErrorPin(true)
+        }else{
+            setErrorPin(false)
+        }
         setPin(e.target.value)
     }
 
     const handlePhone = (e) => {
+        if(e.target.value.trim() === ""){
+            setErrorPhone(true) 
+        }else{
+            setErrorPhone(false)
+        }
         setPhone(e.target.value)
     }
 
-    const handleBlur = () => {
-        if (!email.trim()) {
-          setError("Please enter a valuable input");
-        } else {
-          setError("");
-        }
-      }
-    
 
     const renderTheAddressPaymentSection = () => (
         <div className='address-payment-section'>
@@ -100,15 +140,16 @@ const CheckoutPage = () => {
                         type="text"
                         id="nameInput"
                         value={email}
-                        onBlur={handleBlur}
+                        onBlur={email.trim() === "" ? () => setErrorEmail(true) : () => setErrorEmail(false)}
                         onChange={handleInputChange}
                         placeholder=" "
                         />
                         <label htmlFor="nameInput" className="placeholder">
                             Email
                         </label>
+                        {errorEmail && <span className="error-message">⚠ Required</span>}
                     </div>
-                    {error && <p style={{ color: "red" }}>{error}</p>}
+                    
                 </div>
                 <div className='checkout-checkbox-cont'>
                     <input id='emailCheckBox' className='checkout-checkbox' type='checkbox' />
@@ -129,7 +170,7 @@ const CheckoutPage = () => {
                             className='email-input'
                             type="text"
                             id="nameInput"
-                            onBlur={handleBlur}
+                            onBlur={firstName.trim() === "" ? () => setErrorFirstName(true) : () => setErrorFirstName(false)}
                             value={firstName}
                             onChange={handleFirstName}
                             placeholder=" "
@@ -137,8 +178,9 @@ const CheckoutPage = () => {
                             <label htmlFor="nameInput" className="placeholder">
                                 First Name
                             </label>
+                            {errorFirstName && <span className="error-message">⚠</span>}
                         </div>
-                        {error && <p style={{ color: "red" }}>{error}</p>}
+                        
                     </div>
                     <div className="input-container checkout-names-input-conts email-input-cont">
                         <div className="input-wrapper">
@@ -147,12 +189,14 @@ const CheckoutPage = () => {
                             type="text"
                             id="nameInput"
                             value={lastName}
+                            onBlur={lastName.trim() === "" ? () => setErrorLastName(true) : () => setErrorLastName(false)}
                             onChange={handleLastName}
                             placeholder=" "
                             />
                             <label htmlFor="nameInput" className="placeholder">
                                 Last Name
                             </label>
+                            {errorLastName && <span className="error-message">⚠</span>}
                         </div>
                     </div>
                 </div>
@@ -163,12 +207,14 @@ const CheckoutPage = () => {
                         type="text"
                         id="nameInput"
                         value={address}
+                        onBlur={address.trim() === "" ? () => setErrorAddress(true) : () => setErrorAddress(false)}
                         onChange={handleAddress}
                         placeholder=" "
                         />
                         <label htmlFor="nameInput" className="placeholder">
                             Address
                         </label>
+                        {errorAddress && <span className="error-message">⚠</span>}
                     </div>
                 </div>
                 <div className="input-container margin-top-input-element hundread-width-inputs checkout-names-input-conts email-input-cont">
@@ -178,12 +224,14 @@ const CheckoutPage = () => {
                         type="text"
                         id="nameInput"
                         value={apartment}
+                        onBlur={apartment.trim() === "" ? () => setErrorApartment(true) : () => setErrorApartment(false)}
                         onChange={handleApartment}
                         placeholder=" "
                         />
                         <label htmlFor="nameInput" className="placeholder">
                             Apartment, suite, etc. (optional)
                         </label>
+                        {errorApartment && <span className="error-message">⚠</span>}
                     </div>
                 </div>
                 <div className='checkout-place-cont'>
@@ -194,12 +242,14 @@ const CheckoutPage = () => {
                             type="text"
                             id="nameInput"
                             value={city}
+                            onBlur={city.trim() === "" ? () => setErrorCity(true) : () => setErrorCity(false)}
                             onChange={handleCity}
                             placeholder=" "
                             />
                             <label htmlFor="nameInput" className="placeholder">
                                 City
                             </label>
+                            {errorCity && <span className="error-message">⚠</span>}
                         </div>
                     </div>
                     <select id='states' className='checkout-place-mini-conts checkout-place-states-cont'>
@@ -216,12 +266,14 @@ const CheckoutPage = () => {
                             type="text"
                             id="nameInput"
                             value={pin}
+                            onBlur={pin.trim() === "" ? () => setErrorPin(true) : () => setErrorPin(false)}
                             onChange={handlePin}
                             placeholder=" "
                             />
                             <label htmlFor="nameInput" className="placeholder">
                                 PIN code
                             </label>
+                            {errorPin && <span className="error-message">⚠</span>}
                         </div>
                     </div>
                 </div>
@@ -232,12 +284,14 @@ const CheckoutPage = () => {
                         type="text"
                         id="nameInput"
                         value={phone}
+                        onBlur={phone.trim() === "" ? () => setErrorPhone(true) : () => setErrorPhone(false)}
                         onChange={handlePhone}
                         placeholder=" "
                         />
                         <label htmlFor="nameInput" className="placeholder">
                             Phone
                         </label>
+                        {errorPhone && <span className="error-message">⚠</span>}
                     </div>
                 </div>
 
