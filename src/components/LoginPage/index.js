@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState,useContext } from "react";
 
 import Cookies from 'js-cookie';
 
@@ -8,6 +8,11 @@ import { FaEye, FaEyeSlash  } from "react-icons/fa";
 
 import loginpagelogo from '../../appImages/loginpagelogo.png';
 
+import AllInOne from "../../complexOne/AllInOne";
+
+
+import {jwtDecode} from "jwt-decode";
+
 import './index.css';
 
 const LoginPage = (props) => {
@@ -16,6 +21,8 @@ const LoginPage = (props) => {
     if(jwtToken){
         props.history.replace('/');
     }
+
+    const {updateUserId} = useContext(AllInOne);
 
     const [isNewUser,setIsNewUser] = useState(false);
     const [nameInput,setNameInput] = useState('');
@@ -134,6 +141,10 @@ const LoginPage = (props) => {
                 console.log('Invalid Email or Password');
             }else{
                 setLoading(false);
+                const decodedData = jwtDecode(data.jwtToken)
+                const {userId} = decodedData
+                updateUserId(userId)
+
                 Cookies.set('jwtToken',data.jwtToken, { expires: 30, path: '/' });
                 props.history.replace('/');
             }
