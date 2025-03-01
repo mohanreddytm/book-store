@@ -1,6 +1,9 @@
 import {useState,useEffect, StrictMode} from 'react'
 
 import Header from "../Header"
+import { Watch } from 'react-loader-spinner'
+
+import LoadingPopup from '../LoadingPopup';
 
 
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -37,7 +40,7 @@ const Cart = (props) => {
                     }
 
                     const onClickDeleteButton = () => {
-                        deleteCartItem(book.id)
+                        deleteCartItem(book.book_id)
                     }
                     
                     
@@ -130,7 +133,8 @@ const Cart = (props) => {
         <AllInOne.Consumer>
             {
                 value => {
-                    const {cartBooks} = value
+                    const {cartBooks,cartLoadingStatus} = value
+                    console.log(cartLoadingStatus)
                     
                     return(
                         <div className='cart-initial-cont'>
@@ -138,8 +142,12 @@ const Cart = (props) => {
                             <div className='cart-main-cont'>
                                 <h1 className='cart-main-heading'>Cart</h1>
                                 <div>
-                                    {cartBooks.length > 0 ? renderTheCartItems(cartBooks) : renderEmptyCart()}
-                                </div>
+                                    {cartLoadingStatus ?  
+                                     <LoadingPopup isOpen={cartLoadingStatus}  content=
+                                     "Loading Cart Books Items " /> : (cartBooks.length > 0 ? renderTheCartItems(cartBooks) : renderEmptyCart())
+                                
+                                    }
+                                    </div>
                             </div>
                         </div>
                     )

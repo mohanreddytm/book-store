@@ -27,12 +27,15 @@ import {jwtDecode} from "jwt-decode";
 import './App.css'
 
 const App = () => {
-
+  const [cartLoading, setCartLoading] = useState(false)
   const [cartBooksItems, setCartBooksItems] = useState([])
   const [userName, setUserName] = useState('') 
 
 
+//check after the delete cart done
+
   useEffect(() => {
+    setCartLoading(true)
     const jwtToken = Cookies.get('jwtToken')
     if(jwtToken){
       const decodedToken = jwtDecode(jwtToken)
@@ -41,12 +44,15 @@ const App = () => {
         const response = await fetch(url)
         if(response.ok){
           const data = await response.json()
+          setCartLoading(false)
           setCartBooksItems(data)
         }
       }
       getCartBooks()
+
     }
   },[])
+
 
   const updateCartBooksItems = (book) => {
     console.log("trigered")
@@ -63,14 +69,12 @@ const App = () => {
       })
       if(isOk){
         const addBookToBackendCart = async () => {
-          console.log("entered")
           let cartBook;
           if(userName === ''){
               const jwtToken = Cookies.get('jwtToken')
               if(jwtToken){
                 const decodedToken = jwtDecode(jwtToken)
                 setUserName(decodedToken.userId)
-                console.log(decodedToken.userId)
                  cartBook = {
                   user_id: decodedToken.userId,
                   book_id: book.id,
@@ -81,7 +85,6 @@ const App = () => {
                 }
               }
           }else{
-            console.log(userName)
              cartBook = {
                 user_id: userName,
                 book_id: book.id,
@@ -109,7 +112,6 @@ const App = () => {
             const response = await fetch(url,options)
             if(response.ok){
               const data = await response.json()
-              console.log(data)
             }
           }catch(error){
             console.log(error)
@@ -125,15 +127,66 @@ const App = () => {
   }
 
   const deleteTheCartItemFromCartList = (id) => {
-    const filteredBooks = cartBooksItems.filter((eachBook) => eachBook.id !== id)
-    setCartBooksItems(filteredBooks)
+    setCartLoading(true)
+    const filteredCartBooks = cartBooksItems.filter((eachBook) => eachBook.book_id !== id)
+    const url = "https://forrender-1cde.onrender.com/cart/delete"
+    const jwtToken = Cookies.get('jwtToken')
+    const decodedToken = jwtDecode(jwtToken)
+    const userName = decodedToken.userId
+    const options = {
+      method:"DELETE",
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({user_id:userName,book_id:id})
+    }
+    const deleteCartItem = async () => {
+      try{
+        const response = await fetch(url,options)
+        if(response.ok){
+          const data = await response.json()
+          setCartLoading(false)
+          setCartBooksItems(filteredCartBooks)
+          console.log(data)
+        }
+      }catch(error){
+        console.log(error)
+      }
+    }
+    deleteCartItem()
+    console.log(filteredCartBooks)
   }
+
+
 
   const updateCartQuantity = (book) => {
     setCartBooksItems((prevState) => {
       const updateQuantity = prevState.map(eachBook => {
         if(eachBook.id === book.id){
           const quantity = book.quantity
+          const url = "https://forrender-1cde.onrender.com/cart/update"
+          const jwtToken = Cookies.get('jwtToken')
+          const decodedToken = jwtDecode(jwtToken)
+          const userName = decodedToken.userId
+          const options = {
+            method:"PUT",
+            headers:{
+              'Content-Type':'application/json'
+            },
+            body: JSON.stringify({user_id:userName,book_id:book.book_id,quantity})
+          }
+          const updateQuantity = async () => {
+            try{
+              const response = await fetch(url,options)
+              if(response.ok){
+                const data = await response.json()
+                console.log(data)
+              }
+            }catch(error){
+              console.log(error)
+            }
+          }
+          updateQuantity()
           return {...eachBook, quantity}
         }
         return eachBook
@@ -157,7 +210,7 @@ const App = () => {
   }
 
   return(
-    <AllInOne.Provider value={{userId:userName,updateUserId:updateUserIdForCart,deleteCartItem:deleteTheCartItemFromCartList,modifyCartBooksFun:updateCartQuantity,addCartBooksFun:updateCartBooksItems,cartBooks:cartBooksItems}}>
+    <AllInOne.Provider value={{cartLoadingStatus:cartLoading,userId:userName,updateUserId:updateUserIdForCart,deleteCartItem:deleteTheCartItemFromCartList,modifyCartBooksFun:updateCartQuantity,addCartBooksFun:updateCartBooksItems,cartBooks:cartBooksItems}}>
         <Switch>
           <Route exact path='/login' component={LoginPage} />
           <ProtectedRoute exact path='/' component={Home} />

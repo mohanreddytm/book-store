@@ -6,7 +6,8 @@ const AllInOne = react.createContext({
     updateUserId: () => {},
     addCartBooksFun: () => {},
     modifyCartBooksFun : () => {},
-    deleteCartItem:() => {}
+    deleteCartItem:() => {},
+    cartLoadingStatus: false
 })
 
 export default AllInOne

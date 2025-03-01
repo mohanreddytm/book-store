@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
-function LoadingPopup({ isOpen }) {
+function LoadingPopup({ isOpen, content }) {
   if (!isOpen) return null;
+  console.log(content);
 
   return (
     <div style={styles.overlay}>
       <div style={styles.popup}>
         <ClipLoader color="#36d7b7" size={50} />
-        <p>Curating books you'll love...</p>
+        <p>{content}...</p>
       </div>
     </div>
   );
