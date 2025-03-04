@@ -1,4 +1,4 @@
-import { useState,useContext } from "react";
+import { useState,useContext, useEffect } from "react";
 
 import Cookies from 'js-cookie';
 
@@ -39,6 +39,9 @@ const LoginPage = (props) => {
     const [showConfirmPasswordForRegister,setShowConfirmPasswordForRegister] = useState(false);
 
     const [loading, setLoading] = useState(false);
+    const [errorLogin,setErrorLogin] = useState(false);
+    const [errorRegister,setErrorRegister] = useState(false);
+
 
 
     const onChangeNameInput = (event) => {
@@ -58,36 +61,69 @@ const LoginPage = (props) => {
     };
 
     const onClickCreateAccountButton = async () => { 
-        setLoading(true); 
-        console.log(nameInput,emailInput,passwordInput,confirmPasswordInput);
-        if(passwordInput === confirmPasswordInput){
-            const response = await fetch('https://forrender-1cde.onrender.com/users/',{
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json'
-                },
-                body:JSON.stringify({
-                    name:nameInput,
-                    email:emailInput,
-                    password:passwordInput
-                })
-            });
-            const data = await response.json();
-
-            setLoading(false);
-            const jwtToken = data.jwtToken;
-            if(response.ok){
-                if(data === undefined){
-                    console.log('Invalid Email or Password');
-                }else{
-                    setLoading(false);
-                    Cookies.set('jwtToken',data.jwtToken, { expires: 30, path: '/' });
-                    props.history.replace('/');
-                }
+        
+        try{
+            if(nameInput.trim() === '' || emailInput.trim() === '' || passwordInput.trim() === '' || confirmPasswordInput.trim() === ''){
+                setErrorRegister("All fields are required. Please fill them in.")
+                return
             }
-        }else{
-            console.log('Password and Confirm Password should be same');
+
+            if(!emailInput.includes('@gmail.com')){
+                setErrorRegister("Email format is incorrect. Use example@gmail.com.")
+                return
+            }
+
+            if(passwordInput.length < 8){
+                setErrorRegister("Your password must have at least 8 characters")
+                return 
+            }
+                
+            
+
+            setLoading(true); 
+            
+            if((passwordInput === confirmPasswordInput) && passwordInput.trim() !== '' &&confirmPasswordInput.trim() !== ''){
+                const response = await fetch('https://forrender-1cde.onrender.com/users/',{
+                    method:'POST',
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    body:JSON.stringify({
+                        name:nameInput,
+                        email:emailInput,
+                        password:passwordInput
+                    })
+                });
+                const data = await response.json();
+    
+                setLoading(false);
+                const jwtToken = data.jwtToken;
+                if(response.ok){
+                    if(data === undefined){
+                        console.log('Invalid Email or Password');
+                    }else{
+                        const decodedData = jwtDecode(data.jwtToken)
+                        const {userId} = decodedData
+                        updateUserId(userId)
+                        Cookies.set('jwtToken',data.jwtToken, { expires: 30, path: '/' });
+                        props.history.replace('/');
+                    }
+                }
+            }else{
+                setErrorRegister('Password and Confirm Password should be same');
+            }
+
         }
+        catch(error){
+            if(error.message.includes("User already exists")){
+                setErrorRegister("This email is already registered. Use a different one or log in.");
+            }else{
+                setErrorRegister('Invalid User');
+            }
+        }
+        
+        setLoading(false);
+        
     }
 
 
@@ -122,37 +158,50 @@ const LoginPage = (props) => {
 
 
     const onClickLoginButton = async () => {
+
+        
+        if(loginEmailInput.trim() === '' || loginPasswordInput.trim() === ''){
+            setErrorLogin("All fields are required. Please fill them in.")
+            return
+        }
+
         setLoading(true);
 
-        const options = {
-            method:'POST',
-            headers:{
-                'Content-type':'application/json'
-            },
-            body:JSON.stringify({
-                email:loginEmailInput,
-                password:loginPasswordInput
-            })
-        }
-        const response =  await fetch('https://forrender-1cde.onrender.com/login/',options);
-        const data = await response.json();
-        if(response.ok) {
-            if(data === undefined){
-                console.log('Invalid Email or Password');
-            }else{
-                setLoading(false);
-                const decodedData = jwtDecode(data.jwtToken)
-                const {userId} = decodedData
-                updateUserId(userId)
-
-                Cookies.set('jwtToken',data.jwtToken, { expires: 30, path: '/' });
-                props.history.replace('/');
+        try{
+            const options = {
+                method:'POST',
+                headers:{
+                    'Content-type':'application/json'
+                },
+                body:JSON.stringify({
+                    email:loginEmailInput,
+                    password:loginPasswordInput
+                })
             }
-        }else{
-            console.log('Invalid Email or Password');
+            const response =  await fetch('https://forrender-1cde.onrender.com/login/',options);
+            const data = await response.json();
+    
+            if(response.ok) {
+                if(data === undefined){
+                    console.log('Invalid Email or Password');
+                }else{
+                    setLoading(false);
+                    const decodedData = jwtDecode(data.jwtToken)
+                    const {userId} = decodedData
+                    updateUserId(userId)
+                    Cookies.set('jwtToken',data.jwtToken, { expires: 30, path: '/' });
+                    props.history.replace('/');
+                }
+            }
+        }catch(error){
+            if(error.message.includes("Invalid password")){
+                setErrorLogin('Invalid Password');
+                
+            }else{
+                setErrorLogin('Invalid User');
+            }
         }
-        console.log(data);
-
+        setLoading(false);
     }
 
     const newAccount = () => {
@@ -185,6 +234,7 @@ const LoginPage = (props) => {
                     </div>
                     
                     <button onClick={onClickCreateAccountButton} className="login-button">Create Account</button>
+                    <p className="error-message-2">{errorRegister}</p>
                     <p className="new-account-content">Already have an account: <span className="create-account-content" onClick={onClickLoginOne}>Login</span></p>
                 </div>
             </div>
@@ -209,6 +259,7 @@ const LoginPage = (props) => {
 
                     </div>
                     <button className="login-button" onClick={onClickLoginButton}>Login</button>
+                    <p className="error-message-2">{errorLogin}</p>
                     <p className="new-account-content">New to BookStore: <span className="create-account-content" onClick={onClickNewAccount}>Create account</span></p>
                 </div>
             </div>
@@ -221,7 +272,9 @@ const LoginPage = (props) => {
     return(
         <div>
             <div>
-                <LoadingPopup isOpen={loading} />
+                <LoadingPopup isOpen={loading} content={
+                    "Checking Credentials"
+                } />
             </div>
             
             {isNewUser ? newAccount() : nowLogin()}

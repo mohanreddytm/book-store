@@ -3,7 +3,6 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 function LoadingPopup({ isOpen, content }) {
   if (!isOpen) return null;
-  console.log(content);
 
   return (
     <div style={styles.overlay}>

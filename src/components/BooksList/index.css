@@ -101,10 +101,8 @@ min-height:100vh;
     outline: none;
     background-color: transparent;
     font-size: 12px;
+    border-radius: 2px;
     
-    border-top-left-radius: 2px;
-    
-    border-bottom-left-radius: 2px;
 }
 
 
@@ -164,17 +162,24 @@ min-height:100vh;
     border: #010c1c solid 1px;
     background-color: transparent;
     border-left: none;
+    cursor: pointer;
 }
 
 
 
 .books-list-input-icon{
     font-size: 12px;
+    transform: translate(-20px);
+    cursor: pointer;
 }
 
 *{
     font-family: "Roboto";
     box-sizing: border-box;
+}
+
+.books-list-input-icon{
+    outline: none;
 }
 
 

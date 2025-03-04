@@ -135,6 +135,7 @@ const Cart = (props) => {
                 value => {
                     const {cartBooks,cartLoadingStatus} = value
                     console.log(cartLoadingStatus)
+                    console.log(cartBooks)
                     
                     return(
                         <div className='cart-initial-cont'>

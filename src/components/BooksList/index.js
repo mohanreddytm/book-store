@@ -82,6 +82,9 @@ const BooksList = (props) => {
     )
 
     const onClickSearchButton = async () => {
+        if(searchInput.trim() === ''){
+            return
+        }
         const url = `https://api.itbook.store/1.0/search/${searchInput}`
         const response = await fetch(url)
         const booksDetails = await response.json()
@@ -180,12 +183,7 @@ const BooksList = (props) => {
                 <div className='books-list-books-section'>
                     <div className='books-list-search-cont'>
                         <input value={searchInput} onChange={onChangeInput} className='books-list-input-one' type='search' placeholder='Search for Book' />
-                        <div className='books-list-input-icon-cont'>
-                            <button onClick={onClickSearchButton} className='books-list-seach-button'>
-                                <IoSearch className='books-list-input-icon' />
-                            </button>
-                            
-                        </div>
+                        <IoSearch onClick={onClickSearchButton} className='books-list-input-icon' />
                     </div>
                     <div>
                         {renderTheMain()}
