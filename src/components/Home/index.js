@@ -50,8 +50,6 @@ const Home = (props) => {
 
                 
                 setBooksList(booksData.books)
-            }else{
-                console.log("error")
             }
             
         }

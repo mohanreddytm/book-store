@@ -88,7 +88,6 @@ const Cart = (props) => {
 
 
     const renderTheCartItems = (cartBooks) => {
-        console.log("its")
         let totalAmount = 0
         return(
             <div className='cart-products-main-cont'>
@@ -134,8 +133,6 @@ const Cart = (props) => {
             {
                 value => {
                     const {cartBooks,cartLoadingStatus} = value
-                    console.log(cartLoadingStatus)
-                    console.log(cartBooks)
                     
                     return(
                         <div className='cart-initial-cont'>

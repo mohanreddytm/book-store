@@ -49,10 +49,63 @@ const CheckoutPage = () => {
     const [errorPin, setErrorPin] = useState(false)
     const [errorPhone, setErrorPhone] = useState(false)
 
+    const [shippingMethod, setShippingMethod] = useState('Standard Shipping')
+    const [shippingAmount, setShippingAmount] = useState(0)
+
+    const [paymentMethod, setPaymentMethod] = useState('Cash On Delivery')
+
+    const [toggleCompleted, setToggleCompleted] = useState(false)
+    const [isAllCompleted, setIsAllCompleted] = useState(false)
+
 
     const [totalBooks, setTotalBooks] = useState(0)
 
+    useEffect(() => {
+        if(toggleCompleted){
+            setTimeout(() => {
+                setToggleCompleted(false)
+            }, 3000)
+        }
+
+    },[toggleCompleted,isAllCompleted])
+    
+
     let totalPriceSummary = 0
+
+    const onClickCreditCard = () => {
+        setPaymentMethod('Credit and Debit Cards')
+    }
+
+    const onClickNetBanking = () => {
+        setPaymentMethod('Net Banking')
+    }
+
+    const onClickUpi = () => {
+        setPaymentMethod('Upi')
+    }
+
+    const onClickWallet = () => {
+        setPaymentMethod('Wallet')
+    }
+
+    const onClickCashOnDelivery = () => {
+        setPaymentMethod('Cash On Delivery')
+    }
+
+    const onClickFreeShipping = () => {
+        setShippingMethod('Standard Shipping')
+        setShippingAmount(0)
+    }
+
+    const onClickExpressShipping = () => {
+        setShippingMethod('Express Shipping')
+        setShippingAmount(5)
+    }
+
+    const onClickOvernightShipping = () => {
+        setShippingMethod('Overnight Shipping')
+        setShippingAmount(10)
+    }
 
 
     const handleInputChange = (e) => {
@@ -126,6 +179,17 @@ const CheckoutPage = () => {
             setErrorPhone(false)
         }
         setPhone(e.target.value)
+    }
+
+    const onClickSubmitOne = () => {
+        if(email.trim() === "" || firstName.trim() === "" || lastName.trim() === "" || address.trim() === "" || city.trim() === "" || pin.trim() === "" || phone.trim() === ""){
+            setIsAllCompleted(false)
+            setToggleCompleted(true)
+        }else{
+            setIsAllCompleted(true)
+            setToggleCompleted(true)
+        }
+        
     }
 
 
@@ -298,7 +362,7 @@ const CheckoutPage = () => {
                 <div className='checkout-shipping-cont'>
                     <h1 className='checkout-form-main-heading margin-top-input-element'>Shipping Method</h1>
                     <div className='checkout-shipping-sub-conts'>
-                        <div className='checkout-shipping-every-cont'>
+                        <div className='checkout-shipping-every-cont' onClick={onClickFreeShipping}>
                             <h1 className='delivery-method-heading'>Standard Shipping</h1>
                             <img className='delivery-method-image' src='https://img.freepik.com/premium-vector/technology-driven-warehouse-operations-inventory-control-illustration-illustration_327176-1839.jpg?w=900' alt='Standard Shipping'/>
                             <div className='delivery-method-price-date-cont'>
@@ -306,7 +370,7 @@ const CheckoutPage = () => {
                                 <p className='delivery-method-time'>5-7 days</p>
                             </div>
                         </div>
-                        <div className='checkout-shipping-every-cont'>
+                        <div className='checkout-shipping-every-cont' onClick={onClickExpressShipping}>
                             <h1 className='delivery-method-heading'>Express Shipping</h1>
                             <img className='delivery-method-image' src='https://img.freepik.com/premium-vector/fast-delivery-package-by-courier-with-scooter-mobile-phone-illustration_185038-28.jpg?w=996' alt='Express Shipping'/>
                             <div className='delivery-method-price-date-cont'>
@@ -314,7 +378,7 @@ const CheckoutPage = () => {
                                 <p className='delivery-method-time'>3-5 days</p>
                             </div>
                         </div>
-                        <div className='checkout-shipping-every-cont'>
+                        <div className='checkout-shipping-every-cont' onClick={onClickOvernightShipping}>
                             <h1 className='delivery-method-heading'>Overnight Shipping</h1>
                             <img className='delivery-method-image' src='https://img.freepik.com/free-vector/express-courier-delivery-professional-postal-service-cargo-transportation-business-gods-distribution-home-delivering-idea-design-element_335657-1635.jpg?t=st=1733288270~exp=1733291870~hmac=18a756abb3d3c05a2a3536dec26033c95d2d55ec599464ffe44da0cbe36131ea&w=740' alt='Overnight Shipping'/>
                             <div className='delivery-method-price-date-cont'>
@@ -328,23 +392,23 @@ const CheckoutPage = () => {
                 <div className='checkout-payment-method-cont'>
                     <h1 className='checkout-form-main-heading margin-top-input-element'>Payment Method</h1>
                     <ul className='checkout-payment-method-sub-conts'>
-                        <li className='payment-method-type-cont'>
+                        <li className='payment-method-type-cont' onClick={onClickCreditCard}>
                             <FaCreditCard className='payment-method-type-icons' />
                             <h1 className='payment-method-type-text'>Credit and Debit Cards</h1>
                         </li>
-                        <li className='payment-method-type-cont'>
+                        <li className='payment-method-type-cont' onClick={onClickNetBanking}>
                             <TiMessageTyping className='payment-method-type-icons' />
                             <h1 className='payment-method-type-text'>Net Banking</h1>
                         </li>
-                        <li className='payment-method-type-cont'>
+                        <li className='payment-method-type-cont' onClick={onClickUpi}>
                             <img src='https://img.icons8.com/?size=100&id=5RcHTSNy4fbL&format=png&color=000000' alt='upi' className='payment-method-type-image' />
                             <img src='https://telecomtalk.info/wp-content/uploads/2021/06/upi-payments-see-inevitable-growth-in-india.jpg.webp' alt='upi full' className='upi-image' />
                         </li>
-                        <li className='payment-method-type-cont'>
+                        <li className='payment-method-type-cont' onClick={onClickWallet}>
                             <img src='https://img.icons8.com/?size=100&id=13016&format=png&color=000000' alt='wallete' className='payment-method-type-image' />
                             <h1 className='payment-method-type-text'>Wallets</h1>
                         </li>
-                        <li className='payment-method-type-cont'>
+                        <li className='payment-method-type-cont' onClick={onClickCashOnDelivery}>
                             <img src='https://img.icons8.com/?size=100&id=RtB7k6wrWNE6&format=png&color=000000' alt='wallete' className='payment-method-type-image' />
                             <h1 className='payment-method-type-text'>Cash On Delivery</h1>
                         </li>
@@ -355,17 +419,20 @@ const CheckoutPage = () => {
                     <div className='checkout-payment-section-summary-cont-item'>
                         <h1 className='checkout-payment-section-summary-head'>Shipping Method</h1>
                         <div className='checkout-payment-section-summary-cont-delivery-type-cont'>
-                            <h1 className='checkout-payment-section-summary-cont-delivery-type'>Standerd Delivery</h1>
+                            <h1 className='checkout-payment-section-summary-cont-delivery-type'>{shippingMethod}</h1>
                         </div>
                     </div>
                     <div className='checkout-payment-section-summary-cont-item'>
                         <h1 className='checkout-payment-section-summary-head'>Payment Method</h1>
                         <div className='checkout-payment-section-summary-cont-delivery-type-cont'>
-                            <h1 className='checkout-payment-section-summary-cont-delivery-type'>Cash On Delivery</h1>
+                            <h1 className='checkout-payment-section-summary-cont-delivery-type'>{paymentMethod}</h1>
                         </div>
                     </div>
                 </div>
-                <button type='button' className='submit-button'>Submit</button>
+                <button type='button' className='submit-button' onClick={onClickSubmitOne}>Submit</button>
+                <p className={`final-one ${toggleCompleted ? "show-completed" : 
+                    "show-not-completed"
+                }`} >{isAllCompleted ? "Completed" : "Please fill All the Required Feilds"}</p>
 
                 
             </form>
@@ -398,6 +465,7 @@ const CheckoutPage = () => {
         const realPrice = book.price.replace('$','')
         const costPrice = realPrice * book.quantity
         totalPriceSummary += costPrice
+        
         return(
         <li className='checkout-summary-item-cont' key={book.id}>
             <div className='checkout-summary-item-sub-cont'>
@@ -418,6 +486,7 @@ const CheckoutPage = () => {
                 {
                 value => {
                     const {cartBooks} = value
+                    
                     return(
                         <div className='checkout-summary-initial-cont'>
                             <ul className='checkout-summary-section-list'>
@@ -439,11 +508,11 @@ const CheckoutPage = () => {
                                     <h1 className='checkout-summary-mini-heading'>Shipping</h1>
                                     <FaRegQuestionCircle className='checkout-summary-mini-heading quetion-add-on' />
                                 </div>
-                                <p className='checkout-summary-mini-amount'>FREE</p>
+                                <p className='checkout-summary-mini-amount'>${shippingAmount}</p>
                             </div>
                             <div className='checkout-summary-mini-containers'>
                                 <h1 className='checkout-summary-mini-heading checkout-summary-total-head'>Total</h1>
-                                <p className='checkout-summary-mini-amount checkout-summary-total-head'>${totalPriceSummary.toFixed(2)}</p>
+                                <p className='checkout-summary-mini-amount checkout-summary-total-head'>${(totalPriceSummary + shippingAmount).toFixed(2)    }</p>
                             </div>
                             <p className='checkout-summary-taxes-para'>Including $0.00 in taxes</p>
                             
@@ -465,7 +534,7 @@ const CheckoutPage = () => {
             <div className='mobile-smart-tab-initial-cont'>
                 <div className='mobile-smart-tab-main-cont'>
                     <h1 className='mobile-smart-tab-head' onClick={onClickToggleOne}>Show order summary <FaAngleDown className='mobile-smart-tab-arrow-button' /></h1>
-                    <h1 className='mobile-smart-tab-amount'>$350</h1>
+                    
                 </div>
                 
             </div>
@@ -481,7 +550,6 @@ const CheckoutPage = () => {
 
 
                 if(cartBooks.length === 0){
-                    console.log("al;")
                     return <Redirect to='/cart' />
                 }
 

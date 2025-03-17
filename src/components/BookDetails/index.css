@@ -90,6 +90,20 @@
     font-size: 12px;
 }
 
+.book-details-cart-button{
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    color:#f2f2f2;
+    font-size: 16px;
+    outline: none;
+}
+
+.book-details-cart-button:focus,
+.book-details-cart-button:active {
+    background-color: transparent !important;
+}
+
 .book-details-mobile-buy-buttons-cont{
     width: 100vw;
     display: flex;
@@ -214,14 +228,6 @@
 margin-bottom: 12px;
 }
 
-.book-details-cart-button{
-    flex-grow: 1;
-    border: none;
-    background-color: transparent;
-    color:#f2f2f2;
-    font-size: 16px;
-    outline: none;
-}
 
 .book-details-desc{
     color:#171715;

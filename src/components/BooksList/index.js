@@ -90,7 +90,6 @@ const BooksList = (props) => {
         const booksDetails = await response.json()
 
         setSearchInput('')
-        console.log(searchInput)
         if(response.ok){
             setBooksList(booksDetails.books)
             setPageStatus(Status.success)

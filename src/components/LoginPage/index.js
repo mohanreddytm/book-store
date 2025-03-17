@@ -182,9 +182,7 @@ const LoginPage = (props) => {
             const data = await response.json();
     
             if(response.ok) {
-                if(data === undefined){
-                    console.log('Invalid Email or Password');
-                }else{
+                if(data !== undefined){
                     setLoading(false);
                     const decodedData = jwtDecode(data.jwtToken)
                     const {userId} = decodedData

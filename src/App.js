@@ -36,13 +36,12 @@ const App = () => {
 
   useEffect(() => {
     setCartLoading(true)
-    console.log("useeffect")
+
     const jwtToken = Cookies.get('jwtToken')
     if(jwtToken){
       
       const decodedToken = jwtDecode(jwtToken)
-      console.log(decodedToken.userId)
-      console.log("one")
+
       const url = `https://forrender-1cde.onrender.com/cart/${decodedToken.userId}/`
       const getCartBooks = async () => {
         const response = await fetch(url)
@@ -74,8 +73,7 @@ const App = () => {
         const addBookToBackendCart = async () => {
           let cartBook;
           if(userName === ''){
-            console.log(userName)
-            console.log("--")
+
               const jwtToken = Cookies.get('jwtToken')
               if(jwtToken){
                 const decodedToken = jwtDecode(jwtToken)
@@ -90,8 +88,7 @@ const App = () => {
               }
           }else{
             
-            console.log(userName)
-            console.log("**")
+
              cartBook = {
                 user_id: userName,
                 book_id: book.id,
@@ -154,14 +151,13 @@ const App = () => {
           const data = await response.json()
           setCartLoading(false)
           setCartBooksItems(filteredCartBooks)
-          console.log(data)
         }
       }catch(error){
         console.log(error)
       }
     }
     deleteCartItem()
-    console.log(filteredCartBooks)
+
   }
 
 
@@ -187,7 +183,7 @@ const App = () => {
               const response = await fetch(url,options)
               if(response.ok){
                 const data = await response.json()
-                console.log(data)
+                
               }
             }catch(error){
               console.log(error)
@@ -204,7 +200,6 @@ const App = () => {
   }
 
   const updateUserIdForCart = (userId) => {
-    console.log("1st")
     const url = `https://forrender-1cde.onrender.com/cart/${userId}/`
     const getCartBooks = async () => {
       const response = await fetch(url)

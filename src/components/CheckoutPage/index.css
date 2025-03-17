@@ -140,7 +140,8 @@
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
-  padding:10px
+  padding:10px;
+  cursor: pointer;
 }
 
 .upi-image{
@@ -261,6 +262,39 @@
   margin-top: 20px;
   cursor: pointer;  
   border:none;
+}
+
+.submit-button:hover{
+  background-color: #333;
+
+  color:#ededed;
+}
+
+.final-one{
+
+  position: fixed;
+  text-align: center;
+  bottom: 50px;
+  left: 40%;
+  background-color: #f7e87c;
+  color: #0d0d0c;
+  padding: 8px 16px;
+  width: 30%;
+  border-radius: 12px;
+
+
+  overflow: hidden;
+  transition: opacity 0.8s ease-in-out, max-height 0.8s ease-in-out;
+}
+
+.show-completed{
+  opacity: 1;
+  max-height: 100px;
+}
+
+.show-not-completed{
+  opacity: 0;
+  max-height: 0;
 }
 
 .checkout-summary-item-image{
