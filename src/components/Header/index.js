@@ -30,7 +30,7 @@ const Header = (props) => {
         <Link to='/' className='home-link'>
           <HeaderLogoCont>
             <HeaderLogo className='header-logo'>B</HeaderLogo>
-            <h1 className='book-store-text'>BookStore</h1>
+            <h1 className='book-store-text'>BookBazaar</h1>
           </HeaderLogoCont>
         </Link>
 
